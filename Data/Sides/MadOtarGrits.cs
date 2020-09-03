@@ -10,7 +10,7 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Sides
 {
-    class MadOtarGrits
+    public class MadOtarGrits
     {
         private Size size = Size.Small;
 

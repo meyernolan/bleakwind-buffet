@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    class ThugsTBone
+    public class ThugsTBone
     {
         /// <summary>
         /// gets the price of the steak

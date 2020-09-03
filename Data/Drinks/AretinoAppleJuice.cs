@@ -11,7 +11,7 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    class AretinoAppleJuice
+    public class AretinoAppleJuice
     {
         private bool ice = true;
         private Size size = Size.Small;

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    class SmokehouseSkeleton
+    public class SmokehouseSkeleton
     {
         private bool sausageLink = true;
         private bool egg = true;

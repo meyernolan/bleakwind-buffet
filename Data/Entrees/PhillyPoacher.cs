@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    class PhillyPoacher
+    public class PhillyPoacher
     {
         private bool sirloin = true;
         private bool onion = true;
