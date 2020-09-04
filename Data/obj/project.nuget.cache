@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "T6bj7wzmJJe4F9Kqx1WRCvNOa1yCgtduZ7VxVEhVLLKZxtv8FXEnVpZK+wby0+AxlgJrjcqxNG3kle1FGnH3KA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\meyer\\CIS400\\bleakwind-buffet\\Data\\Data.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\meyer\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\meyer\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
