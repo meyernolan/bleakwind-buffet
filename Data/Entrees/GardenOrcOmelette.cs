@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
     public class GardenOrcOmelette
     {
@@ -87,9 +87,9 @@ namespace Data.Entrees
             {
                 List<string> instructions = new List<string>();
                 if (!broccoli) instructions.Add("Hold broccoli");
-                if (!tomato) instructions.Add("Hold Tomato");
+                if (!tomato) instructions.Add("Hold tomato");
                 if (!cheddar) instructions.Add("Hold cheddar");
-                if (!mushrooms) instructions.Add("Hold muchrooms");
+                if (!mushrooms) instructions.Add("Hold mushrooms");
                 return instructions;
             }
         }

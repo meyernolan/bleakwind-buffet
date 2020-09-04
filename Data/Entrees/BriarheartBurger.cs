@@ -25,7 +25,7 @@ namespace BleakwindBuffet.Data.Entrees
         public uint Calories => 743;
 
 
-        private bool ketchup;
+        private bool ketchup = true;
         /// <summary>
         /// gets and sets the Ketchup property
         /// </summary>

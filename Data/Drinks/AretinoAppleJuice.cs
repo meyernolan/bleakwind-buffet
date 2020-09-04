@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Drinks
 {
     public class AretinoAppleJuice
     {
-        private bool ice = true;
+        private bool ice = false;
         private Size size = Size.Small;
 
         /// <summary>

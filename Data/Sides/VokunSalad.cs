@@ -56,6 +56,18 @@ namespace BleakwindBuffet.Data.Sides
         }
 
         /// <summary>
+        /// List of special instructions, there are none for this side
+        /// so an empty string is returned.
+        /// </summary>
+        public List<string> SpecialInstructions
+        {
+            get
+            {
+                return new List<string>();
+            }
+        }
+
+        /// <summary>
         /// overrides the ToString() method
         /// </summary>
         /// <returns> the name of the side </returns>

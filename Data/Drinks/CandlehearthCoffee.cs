@@ -12,7 +12,7 @@ namespace BleakwindBuffet.Data.Drinks
 {
     public class CandlehearthCoffee
     {
-        private bool ice = true;
+        private bool ice = false;
         private bool decaf = false;
         private bool roomForCream = false;
         private Size size = Size.Small;
@@ -94,8 +94,8 @@ namespace BleakwindBuffet.Data.Drinks
             get
             {
                 List<string> instructions = new List<string>();
-                if (!Ice) instructions.Add("Add ice");
-                if (!roomForCream) instructions.Add("Add cream");
+                if (Ice) instructions.Add("Add ice");
+                if (roomForCream) instructions.Add("Add cream");
                 return instructions;
             }
         }

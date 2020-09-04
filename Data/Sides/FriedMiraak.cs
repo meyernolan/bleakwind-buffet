@@ -31,11 +31,11 @@ namespace BleakwindBuffet.Data.Sides
             get
             {
                 if (Size == Size.Small)
-                    return 1.22;
+                    return 1.78;
                 else if (Size == Size.Medium)
-                    return 1.58;
+                    return 2.01;
                 else
-                    return 1.93;
+                    return 2.88;
             }
         }
 
@@ -47,11 +47,23 @@ namespace BleakwindBuffet.Data.Sides
             get
             {
                 if (Size == Size.Small)
-                    return 105;
+                    return 151;
                 else if (Size == Size.Medium)
-                    return 142;
+                    return 236;
                 else
-                    return 179;
+                    return 306;
+            }
+        }
+
+        /// <summary>
+        /// List of special instructions, there are none for this side
+        /// so an empty string is returned.
+        /// </summary>
+        public List<string> SpecialInstructions
+        {
+            get
+            {
+                return new List<string>();
             }
         }
 
@@ -63,7 +75,7 @@ namespace BleakwindBuffet.Data.Sides
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(Size.ToString());
-            sb.Append(" Mad Otar Grits");
+            sb.Append(" Fried Miraak");
             return sb.ToString();
         }
     }

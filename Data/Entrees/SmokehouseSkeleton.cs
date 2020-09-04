@@ -78,7 +78,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!SausageLink) instructions.Add("Hold sausage");
                 if (!HashBrowns) instructions.Add("Hold hash browns");
                 if (!Pancake) instructions.Add("Hold pancakes");
-                if (!Egg) instructions.Add("Hold egg");
+                if (!Egg) instructions.Add("Hold eggs");
                 return instructions;
             }
         }
