@@ -114,7 +114,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
                 Assert.DoesNotContain("Hold tomato", goo.SpecialInstructions);
                 Assert.DoesNotContain("Hold cheddar", goo.SpecialInstructions);
             }
-            else if (!goo.Broccoli && !goo.Mushrooms && !goo.Tomato && !goo.Cheddar)
+            else
             {
                 Assert.Contains("Hold broccoli", goo.SpecialInstructions);
                 Assert.Contains("Hold mushrooms", goo.SpecialInstructions);
@@ -128,6 +128,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             GardenOrcOmelette goo = new GardenOrcOmelette();
             Assert.Equal("Garden Orc Omelette", goo.ToString());
+        }
+
+        [Fact]
+        public void ShouldBeAbleToCastToEntreeAndIOrderItem()
+        {
+            Assert.IsAssignableFrom<IOrderItem>(new GardenOrcOmelette());
+            Assert.IsAssignableFrom<Entree>(new GardenOrcOmelette());
         }
     }
 }

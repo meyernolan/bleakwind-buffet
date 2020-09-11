@@ -141,5 +141,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             ss.Size = size;
             Assert.Equal(name, ss.ToString());
         }
+
+        [Fact]
+        public void ShouldBeAbleToCastToDrinkAndIOrderItem()
+        {
+            Assert.IsAssignableFrom<IOrderItem>(new SailorSoda());
+            Assert.IsAssignableFrom<Drink>(new SailorSoda());
+        }
     }
 }

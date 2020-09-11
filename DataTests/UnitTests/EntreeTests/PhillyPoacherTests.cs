@@ -95,7 +95,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
                 Assert.DoesNotContain("Hold onions", pp.SpecialInstructions);
                 Assert.DoesNotContain("Hold roll", pp.SpecialInstructions);
             }
-            else if (!pp.Sirloin && !pp.Onion && !pp.Roll)
+            else
             {
                 Assert.Contains("Hold sirloin", pp.SpecialInstructions);
                 Assert.Contains("Hold onions", pp.SpecialInstructions);
@@ -108,6 +108,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             PhillyPoacher pp = new PhillyPoacher();
             Assert.Equal("Philly Poacher", pp.ToString());
+        }
+
+        [Fact]
+        public void ShouldBeAbleToCastToEntreeAndIOrderItem()
+        {
+            Assert.IsAssignableFrom<IOrderItem>(new PhillyPoacher());
+            Assert.IsAssignableFrom<Entree>(new PhillyPoacher());
         }
     }
 }

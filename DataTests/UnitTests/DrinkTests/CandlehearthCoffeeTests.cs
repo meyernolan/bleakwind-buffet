@@ -157,5 +157,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             cc.Size = size;
             Assert.Equal(name, cc.ToString());
         }
+
+        [Fact]
+        public void ShouldBeAbleToCastToDrinkAndIOrderItem()
+        {
+            Assert.IsAssignableFrom<IOrderItem>(new CandlehearthCoffee());
+            Assert.IsAssignableFrom<Drink>(new CandlehearthCoffee());
+        }
     }
 }

@@ -73,5 +73,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             fm.Size = size;
             Assert.Equal(name, fm.ToString());
         }
+
+        [Fact]
+        public void ShouldBeAbleToCastToSideAndIOrderItem()
+        {
+            Assert.IsAssignableFrom<IOrderItem>(new FriedMiraak());
+            Assert.IsAssignableFrom<Side>(new FriedMiraak());
+        }
     }
 }

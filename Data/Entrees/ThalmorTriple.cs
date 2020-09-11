@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class ThalmorTriple
+    public class ThalmorTriple : Entree, IOrderItem
     {
         private bool bun = true;
         private bool ketchup = true;

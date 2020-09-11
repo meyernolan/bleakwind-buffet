@@ -132,5 +132,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             ww.Size = size;
             Assert.Equal(name, ww.ToString());
         }
+
+        [Fact]
+        public void ShouldBeAbleToCastToDrinkAndIOrderItem()
+        {
+            Assert.IsAssignableFrom<IOrderItem>(new WarriorWater());
+            Assert.IsAssignableFrom<Drink>(new WarriorWater());
+        }
     }
 }

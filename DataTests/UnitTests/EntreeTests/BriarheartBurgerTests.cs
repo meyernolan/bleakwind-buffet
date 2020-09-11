@@ -134,7 +134,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
                 Assert.DoesNotContain("Hold pickle", bb.SpecialInstructions);
                 Assert.DoesNotContain("Hold cheese", bb.SpecialInstructions);
             }
-            else if(!bb.Bun && !bb.Ketchup && !bb.Mustard && !bb.Pickle && !bb.Cheese)
+            else
             {
                 Assert.Contains("Hold bun", bb.SpecialInstructions);
                 Assert.Contains("Hold ketchup", bb.SpecialInstructions);
@@ -149,6 +149,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             BriarheartBurger bb = new BriarheartBurger();
             Assert.Equal("Briarheart Burger", bb.ToString());
+        }
+
+        [Fact]
+        public void ShouldBeAbleToCastToEntreeAndIOrderItem()
+        {
+            Assert.IsAssignableFrom<IOrderItem>(new BriarheartBurger());
+            Assert.IsAssignableFrom<Entree>(new BriarheartBurger());
         }
     }
 }

@@ -114,7 +114,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
                 Assert.DoesNotContain("Hold hash browns", ss.SpecialInstructions);
                 Assert.DoesNotContain("Hold pancakes", ss.SpecialInstructions);
             }
-            else if (!ss.SausageLink && !ss.Egg && !ss.HashBrowns && !ss.Pancake)
+            else
             {
                 Assert.Contains("Hold sausage", ss.SpecialInstructions);
                 Assert.Contains("Hold eggs", ss.SpecialInstructions);
@@ -128,6 +128,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             SmokehouseSkeleton ss = new SmokehouseSkeleton();
             Assert.Equal("Smokehouse Skeleton", ss.ToString());
+        }
+
+        [Fact]
+        public void ShouldBeAbleToCastToEntreeAndIOrderItem()
+        {
+            Assert.IsAssignableFrom<IOrderItem>(new SmokehouseSkeleton());
+            Assert.IsAssignableFrom<Entree>(new SmokehouseSkeleton());
         }
     }
 }

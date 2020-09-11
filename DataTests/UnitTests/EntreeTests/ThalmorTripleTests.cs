@@ -231,7 +231,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
                 Assert.DoesNotContain("Hold bacon", tt.SpecialInstructions);
                 Assert.DoesNotContain("Hold egg", tt.SpecialInstructions);
             }
-            else if (!tt.Bun && !tt.Ketchup && !tt.Mustard && !tt.Pickle && !tt.Cheese && !tt.Tomato && !tt.Lettuce && !tt.Mayo && !tt.Bacon && !tt.Egg)
+            else 
             {
                 Assert.Contains("Hold bun", tt.SpecialInstructions);
                 Assert.Contains("Hold ketchup", tt.SpecialInstructions);
@@ -251,6 +251,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             ThalmorTriple tt = new ThalmorTriple();
             Assert.Equal("Thalmor Triple", tt.ToString());
+        }
+
+        [Fact]
+        public void ShouldBeAbleToCastToEntreeAndIOrderItem()
+        {
+            Assert.IsAssignableFrom<IOrderItem>(new ThalmorTriple());
+            Assert.IsAssignableFrom<Entree>(new ThalmorTriple());
         }
     }
 }

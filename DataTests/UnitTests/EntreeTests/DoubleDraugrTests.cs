@@ -191,7 +191,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
                 Assert.DoesNotContain("Hold lettuce", dd.SpecialInstructions);
                 Assert.DoesNotContain("Hold mayo", dd.SpecialInstructions);
             }
-            else if (!dd.Bun && !dd.Ketchup && !dd.Mustard && !dd.Pickle && !dd.Cheese && !dd.Tomato && !dd.Lettuce && !dd.Mayo)
+            else 
             {
                 Assert.Contains("Hold bun", dd.SpecialInstructions);
                 Assert.Contains("Hold ketchup", dd.SpecialInstructions);
@@ -209,6 +209,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             DoubleDraugr dd = new DoubleDraugr();
             Assert.Equal("Double Draugr", dd.ToString());
+        }
+
+        [Fact]
+        public void ShouldBeAbleToCastToEntreeAndIOrderItem()
+        {
+            Assert.IsAssignableFrom<IOrderItem>(new DoubleDraugr());
+            Assert.IsAssignableFrom<Entree>(new DoubleDraugr());
         }
     }
 }

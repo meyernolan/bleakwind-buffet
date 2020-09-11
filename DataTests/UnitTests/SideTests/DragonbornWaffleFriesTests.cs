@@ -72,5 +72,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             dwf.Size = size;
             Assert.Equal(name, dwf.ToString());
         }
+
+        [Fact]
+        public void ShouldBeAbleToCastToSideAndIOrderItem()
+        {
+            Assert.IsAssignableFrom<IOrderItem>(new DragonbornWaffleFries());
+            Assert.IsAssignableFrom<Side>(new DragonbornWaffleFries());
+        }
     }
 }
