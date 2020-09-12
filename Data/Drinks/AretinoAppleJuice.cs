@@ -26,18 +26,9 @@ namespace BleakwindBuffet.Data.Drinks
         }
 
         /// <summary>
-        /// gets and sets the size
-        /// </summary>
-        public Size Size
-        {
-            get => size;
-            set => size = value;
-        }
-
-        /// <summary>
         /// gets the price of the drink
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -53,7 +44,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// gets the calories of the drink
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -70,7 +61,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// puts together the list of special instructions based
         /// on the items being held
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
