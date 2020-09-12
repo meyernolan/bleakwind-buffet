@@ -1,9 +1,17 @@
-﻿using System;
+﻿/*
+ * Author: Nolan Meyer
+ * Class name: IOrderItem.cs
+ * Purpose: Interface for orderable items
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data
 {
+    /// <summary>
+    /// Class for an interface or items that can be ordered
+    /// </summary>
     public interface IOrderItem
     {
         /// <summary>

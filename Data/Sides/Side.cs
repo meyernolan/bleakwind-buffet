@@ -1,10 +1,18 @@
-﻿using System;
+﻿/*
+ * Author: Nolan Meyer
+ * Class name: Side.cs
+ * Purpose: Base class for sides
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Sides
 {
+    /// <summary>
+    /// A base class representing common properties of sides
+    /// </summary>
     public abstract class Side
     {
         /// <summary>

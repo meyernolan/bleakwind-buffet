@@ -1,4 +1,9 @@
-﻿using BleakwindBuffet.Data.Drinks;
+﻿/*
+ * Author: Nolan Meyer
+ * Class name: Menu.cs
+ * Purpose: represents a menu
+ */
+using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
@@ -8,6 +13,9 @@ using System.Text;
 
 namespace BleakwindBuffet.Data
 {
+    /// <summary>
+    /// A class that represents a menu
+    /// </summary>
     public static class Menu
     {
         /// <summary>

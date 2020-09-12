@@ -1,9 +1,17 @@
-﻿using System;
+﻿/*
+ * Author: Nolan Meyer
+ * Class name: Entree.cs
+ * Purpose: Base class for entrees
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// A base class representing common properties of entrees
+    /// </summary>
     public abstract class Entree
     {
         /// <summary>
