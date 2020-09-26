@@ -64,7 +64,10 @@ namespace BleakwindBuffet.Data
                 drinks.Add(new AretinoAppleJuice() { Size = size });
                 drinks.Add(new CandlehearthCoffee() { Size = size });
                 drinks.Add(new MarkarthMilk() { Size = size });
-                drinks.Add(new SailorSoda() { Size = size });
+                foreach(SodaFlavor flavor in Enum.GetValues(typeof(SodaFlavor)))
+                {
+                    drinks.Add(new SailorSoda() { Size = size , Flavor = flavor});
+                }
                 drinks.Add(new WarriorWater() { Size = size });
             }
             return drinks;
