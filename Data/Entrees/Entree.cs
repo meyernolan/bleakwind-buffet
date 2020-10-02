@@ -12,7 +12,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// A base class representing common properties of entrees
     /// </summary>
-    public abstract class Entree
+    public abstract class Entree : IOrderItem
     {
         /// <summary>
         /// gets the price of the entree

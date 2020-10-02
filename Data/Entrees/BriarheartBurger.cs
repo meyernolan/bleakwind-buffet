@@ -6,11 +6,14 @@
 
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class BriarheartBurger : Entree, IOrderItem
+    public class BriarheartBurger : Entree, IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Gets the price of the burger
         /// </summary>
@@ -32,7 +35,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Ketchup
         {
             get => ketchup;
-            set => ketchup = value;
+            set
+            {
+                ketchup = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
+            }
         }
 
         /// <summary>
@@ -41,8 +48,12 @@ namespace BleakwindBuffet.Data.Entrees
         private bool bun = true;
         public bool Bun 
         { 
-            get => bun; 
-            set => bun = value; 
+            get => bun;
+            set
+            {
+                bun = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
+            }
         }
 
         /// <summary>
@@ -52,7 +63,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Mustard
         {
             get => mustard;
-            set => mustard = value;
+            set
+            {
+                mustard = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
+            }
         }
 
         /// <summary>
@@ -61,8 +76,12 @@ namespace BleakwindBuffet.Data.Entrees
         bool pickle = true;
         public bool Pickle 
         { 
-            get => pickle; 
-            set => pickle = value; 
+            get => pickle;
+            set
+            {
+                pickle = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
+            }
         }
 
         /// <summary>
@@ -71,8 +90,12 @@ namespace BleakwindBuffet.Data.Entrees
         bool cheese = true;
         public bool Cheese 
         { 
-            get => cheese; 
-            set => cheese = value; 
+            get => cheese;
+            set
+            {
+                cheese = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
+            }
         }
 
         /// <summary>

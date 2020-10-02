@@ -6,11 +6,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class GardenOrcOmelette : Entree, IOrderItem
+    public class GardenOrcOmelette : Entree, IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private bool broccoli = true;
         private bool mushrooms = true;
         private bool tomato = true;
@@ -31,7 +34,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Broccoli
         {
             get { return broccoli; }
-            set { broccoli = value; }
+            set
+            {
+                broccoli = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Broccoli"));
+            }
         }
 
         /// <summary>
@@ -40,7 +47,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Tomato
         {
             get { return tomato; }
-            set { tomato = value; }
+            set
+            {
+                tomato = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
+            }
         }
 
         /// <summary>
@@ -49,7 +60,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Cheddar
         {
             get { return cheddar; }
-            set { cheddar = value; }
+            set
+            {
+                cheddar = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheddar"));
+            }
         }
 
         /// <summary>
@@ -58,7 +73,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Mushrooms
         {
             get { return mushrooms; }
-            set { mushrooms = value; }
+            set
+            {
+                mushrooms = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mushrooms"));
+            }
         }
 
         /// <summary>

@@ -4,11 +4,14 @@
  * Purpose: Class used to represent the Entree Double Draugr 
  */
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class DoubleDraugr : Entree, IOrderItem
+    public class DoubleDraugr : Entree, IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private bool bun = true;
         private bool ketchup = true;
         private bool mustard = true;
@@ -19,21 +22,29 @@ namespace BleakwindBuffet.Data.Entrees
         private bool mayo = true;
 
         /// <summary>
+        /// gets and sets the Ketchup property
+        /// </summary>
+        public bool Ketchup
+        {
+            get => ketchup;
+            set
+            {
+                ketchup = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
+            }
+        }
+
+        /// <summary>
         /// gets and sets if Bun is held or not
         /// </summary>
         public bool Bun
         {
             get => bun;
-            set => bun = value;
-        }
-
-        /// <summary>
-        /// gets and sets if Ketchup is held or not
-        /// </summary>
-        public bool Ketchup
-        {
-            get => ketchup;
-            set => ketchup = value;
+            set
+            {
+                bun = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
+            }
         }
 
         /// <summary>
@@ -42,7 +53,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Mustard
         {
             get => mustard;
-            set => mustard = value;
+            set
+            {
+                mustard = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
+            }
         }
 
         /// <summary>
@@ -51,7 +66,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Pickle
         {
             get => pickle;
-            set => pickle = value;
+            set
+            {
+                pickle = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
+            }
         }
 
         /// <summary>
@@ -60,16 +79,20 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Cheese
         {
             get => cheese;
-            set => cheese = value;
+            set
+            {
+                cheese = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
+            }
         }
-
-        /// <summary>
-        /// gets and sets if Tomato is held or not
-        /// </summary>
         public bool Tomato
         {
             get => tomato;
-            set => tomato = value;
+            set
+            {
+                tomato = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
+            }
         }
 
         /// <summary>
@@ -78,7 +101,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Lettuce
         {
             get => lettuce;
-            set => lettuce = value;
+            set
+            {
+                lettuce = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lettuce"));
+            }
         }
 
         /// <summary>
@@ -87,7 +114,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Mayo
         {
             get => mayo;
-            set => mayo = value;
+            set
+            {
+                mayo = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mayo"));
+            }
         }
 
         /// <summary>

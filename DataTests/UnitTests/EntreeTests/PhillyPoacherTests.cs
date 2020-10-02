@@ -8,6 +8,7 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -115,6 +116,61 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             Assert.IsAssignableFrom<IOrderItem>(new PhillyPoacher());
             Assert.IsAssignableFrom<Entree>(new PhillyPoacher());
+        }
+
+        [Fact]
+        public void ChangingSirloinNotifiesSirloinProperty()
+        {
+            var pp = new PhillyPoacher();
+
+            Assert.PropertyChanged(pp, "Sirloin", () =>
+            {
+                pp.Sirloin = true;
+            });
+
+            Assert.PropertyChanged(pp, "Sirloin", () =>
+            {
+                pp.Sirloin = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingOnionNotifiesOnionProperty()
+        {
+            var pp = new PhillyPoacher();
+
+            Assert.PropertyChanged(pp, "Onion", () =>
+            {
+                pp.Onion = true;
+            });
+
+            Assert.PropertyChanged(pp, "Onion", () =>
+            {
+                pp.Onion = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingRollNotifiesRollProperty()
+        {
+            var pp = new PhillyPoacher();
+
+            Assert.PropertyChanged(pp, "Roll", () =>
+            {
+                pp.Roll = true;
+            });
+
+            Assert.PropertyChanged(pp, "Roll", () =>
+            {
+                pp.Roll = false;
+            });
+        }
+
+        [Fact]
+        public void ImplementsINotifyPropertyChangedInterface()
+        {
+            var pp = new PhillyPoacher();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(pp);
         }
     }
 }

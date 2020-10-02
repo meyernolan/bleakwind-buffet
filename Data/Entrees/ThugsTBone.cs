@@ -4,11 +4,14 @@
  * Purpose: Class used to represent the Entree Thugs TBone
  */
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class ThugsTBone : Entree, IOrderItem
+    public class ThugsTBone : Entree, IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// gets the price of the steak
         /// </summary>

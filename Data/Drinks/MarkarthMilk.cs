@@ -8,13 +8,31 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class MarkarthMilk : Drink, IOrderItem
+    public class MarkarthMilk : Drink, IOrderItem, INotifyPropertyChanged
     {
         private bool ice = false;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private Size size = Size.Small;
+        /// <summary>
+        /// gets the size of the drink
+        /// </summary>
+        public virtual Size Size
+        {
+            get => size;
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
+        }
 
         /// <summary>
         /// gets and sets if Ice is added
@@ -22,7 +40,11 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Ice
         {
             get => ice;
-            set => ice = value;
+            set
+            {
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+            }
         }
 
         /// <summary>

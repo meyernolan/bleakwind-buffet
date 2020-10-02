@@ -5,19 +5,19 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="590">
+             d:DesignHeight="450" d:DesignWidth="900">
     <Grid Grid.Column="0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
-            <ColumnDefinition Width="275"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="45"/>
-            <RowDefinition Height="325"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.ColumnSpan="3" FontSize="17" HorizontalAlignment="Center">
             Add to Order
@@ -29,28 +29,50 @@
         <TextBlock Text="Drinks" FontSize="17" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" 
                    VerticalAlignment="Center" TextDecorations="Underline"/>
 
-        <DockPanel Grid.Row="2" >
-            <Button Name="briarheartBurgerButton" Click="BriarheartBurgerClick" FontSize="12" Content="Briarheart Burger" DockPanel.Dock="Top" Height="46"/>
-            <Button Name="doubleDraugrButton" Click="DoubleDraugrClick" FontSize="12" Content="Double Draugr" DockPanel.Dock="Top" Height="46"/>
-            <Button Name="thalmorTripleButton" Click="ThalmorTripleClick" FontSize="12" Content="Thalmor Triple" DockPanel.Dock="Top" Height="46"/>
-            <Button Name="phillyPoacherButton" FontSize="12" Click="PhillyPoacherClick" Content="Philly Poacher" DockPanel.Dock="Top" Height="46"/>
-            <Button Name="thugsTBoneButton" FontSize="12" Click="ThugsTBoneClick" Content="Thugs T-Bone" DockPanel.Dock="Top" Height="46"/>
-            <Button Name="smokehouseSkeletonButton" Click="SmokehouseSkeletonClick" FontSize="12" Content="Smokehouse Skeleton" DockPanel.Dock="Top" Height="46"/>
-            <Button Name="gardenOrcOmeletteButton" Click="GardenOrcOmeletteClick" FontSize="12" Content="Garden Orc Omelette" DockPanel.Dock="Top" Height="46"/>
-        </DockPanel>
-        <DockPanel Grid.Row="2" Grid.Column="1">
-            <Button Name="dragonbornWaffleFriesButton" FontSize="12" Click="DragonbornWaffleFriesClick" Content="Dragonborn Waffle Fries" DockPanel.Dock="Top" Height="81"/>
-            <Button Name="friedMiraakButton" FontSize="12" Click="FriedMiraakClick" Content="Fried Miraak" DockPanel.Dock="Top" Height="81"/>
-            <Button Name="madOtarGritsButton" FontSize="12" Click="MadOtarGritsClick" Content="Mad Otar Grits" DockPanel.Dock="Top" Height="81"/>
-            <Button Name="vokunSaladButton" FontSize="12" Click="VokunSaladClick" Content="Vokun Salad" DockPanel.Dock="Top" Height="81"/>
-        </DockPanel>
-        <DockPanel Grid.Row="2" Grid.Column="2">
-            <Button Name="aretinoAppleJuiceButton" FontSize="12" Click="AretinoAppleJuiceClick" Content="Aretino Apple Juice" DockPanel.Dock="Top" Height="65"/>
-            <Button Name="candlehearthCoffeeButton" FontSize="12" Click="CandlehearthCoffeeClick" Content="Candlehearth Coffee" DockPanel.Dock="Top" Height="65"/>
-            <Button Name="markarthMilkButton" FontSize="12" Click="MarkarthMilkClick" Content="Markarth Milk" DockPanel.Dock="Top" Height="65"/>
-            <Button Name="sailorSodaButton" FontSize="12" Click="SailorSodaClick" Content="Sailor Soda" DockPanel.Dock="Top" Height="65"/>
-            <Button Name="warriorWaterButton" FontSize="12" Click="WarriorWaterClick" Content="Warrior Water" DockPanel.Dock="Top" Height="65"/>
-        </DockPanel>
+        <Grid Grid.Row="2" >
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Name="briarheartBurgerButton" Click="BriarheartBurgerClick" FontSize="12" Content="Briarheart Burger" Grid.Row="0"/>
+            <Button Name="doubleDraugrButton" Click="DoubleDraugrClick" FontSize="12" Content="Double Draugr" Grid.Row="1"/>
+            <Button Name="thalmorTripleButton" Click="ThalmorTripleClick" FontSize="12" Content="Thalmor Triple" Grid.Row="2" />
+            <Button Name="phillyPoacherButton" FontSize="12" Click="PhillyPoacherClick" Content="Philly Poacher" Grid.Row="3"/>
+            <Button Name="thugsTBoneButton" FontSize="12" Click="ThugsTBoneClick" Content="Thugs T-Bone" Grid.Row="4" />
+            <Button Name="smokehouseSkeletonButton" Click="SmokehouseSkeletonClick" FontSize="12" Content="Smokehouse Skeleton" Grid.Row="5"/>
+            <Button Name="gardenOrcOmeletteButton" Click="GardenOrcOmeletteClick" FontSize="12" Content="Garden Orc Omelette" Grid.Row="6" />
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Name="dragonbornWaffleFriesButton" FontSize="12" Click="DragonbornWaffleFriesClick" Content="Dragonborn Waffle Fries" Grid.Row="0"/>
+            <Button Name="friedMiraakButton" FontSize="12" Click="FriedMiraakClick" Content="Fried Miraak" Grid.Row="1"/>
+            <Button Name="madOtarGritsButton" FontSize="12" Click="MadOtarGritsClick" Content="Mad Otar Grits" Grid.Row="2" />
+            <Button Name="vokunSaladButton" FontSize="12" Click="VokunSaladClick" Content="Vokun Salad" Grid.Row="3" />
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Name="aretinoAppleJuiceButton" FontSize="12" Click="AretinoAppleJuiceClick" Content="Aretino Apple Juice" Grid.Row="0" />
+            <Button Name="candlehearthCoffeeButton" FontSize="12" Click="CandlehearthCoffeeClick" Content="Candlehearth Coffee" Grid.Row="1" />
+            <Button Name="markarthMilkButton" FontSize="12" Click="MarkarthMilkClick" Content="Markarth Milk" Grid.Row="2" />
+            <Button Name="sailorSodaButton" FontSize="12" Click="SailorSodaClick" Content="Sailor Soda" Grid.Row="3"/>
+            <Button Name="warriorWaterButton" FontSize="12" Click="WarriorWaterClick" Content="Warrior Water" Grid.Row="4"/>
+        </Grid>
 
         <Button Grid.Column="1" Grid.Row="3" Content="Cancel Order" FontSize="12" Margin="0,5,0,0"/>
         <Button Grid.Column="2" Grid.Row="3" Content="Done" FontSize="12" Margin="0,5,0,0"/>

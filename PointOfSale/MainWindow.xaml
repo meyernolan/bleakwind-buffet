@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PointOfSale"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="800">
+        Title="MainWindow" Height="500" Width="900">
     <Grid>
-        <local:OrderComponent MinWidth="150" HorizontalAlignment="Right" Margin="5,5,5,5"/>
+        <local:OrderComponent MinWidth="150" Margin="0,5,5,5"/>
     </Grid>
 </Window>

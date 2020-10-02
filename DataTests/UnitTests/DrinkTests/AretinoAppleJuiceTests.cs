@@ -9,6 +9,8 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Drinks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -99,6 +101,51 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             Assert.IsAssignableFrom<IOrderItem>(new AretinoAppleJuice());
             Assert.IsAssignableFrom<Drink>(new AretinoAppleJuice());
+        }
+
+        [Fact]
+        public void ChangingIceNotifiesIceProperty()
+        {
+            var AJ = new AretinoAppleJuice();
+
+            Assert.PropertyChanged(AJ, "Ice", () =>
+            {
+                AJ.Ice = true;
+            });
+
+            Assert.PropertyChanged(AJ, "Ice", () =>
+            {
+                AJ.Ice = false;
+            });
+        }
+
+
+        [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            var AJ = new AretinoAppleJuice();
+
+            Assert.PropertyChanged(AJ, "Size", () =>
+            {
+                AJ.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(AJ, "Size", () =>
+            {
+                AJ.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(AJ, "Size", () =>
+            {
+                AJ.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ImplementsINotifyPropertyChangedInterface()
+        {
+            var aj = new AretinoAppleJuice();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(aj);
         }
     }
 }

@@ -7,15 +7,33 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class CandlehearthCoffee : Drink, IOrderItem
+    public class CandlehearthCoffee : Drink, IOrderItem, INotifyPropertyChanged
     {
         private bool ice = false;
         private bool decaf = false;
         private bool roomForCream = false;
+
+        public new event PropertyChangedEventHandler PropertyChanged;
+
         private Size size = Size.Small;
+        /// <summary>
+        /// gets the size of the drink
+        /// </summary>
+        public virtual Size Size
+        {
+            get => size;
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
+        }
 
         /// <summary>
         /// gets and sets if Ice is added
@@ -23,7 +41,11 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Ice
         {
             get => ice;
-            set => ice = value;
+            set
+            {
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+            }
         }
 
         /// <summary>

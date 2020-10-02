@@ -1,4 +1,11 @@
-﻿using BleakwindBuffet.Data.Drinks;
+﻿/*
+ * Author: Nolan Meyer
+ * Class name: MenuSelectionComponent.xaml.cs
+ * Purpose: Class used to control the MenuSelectionComponent xaml
+ */
+using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Sides;
 using System;
 using System.Collections.Generic;
@@ -25,7 +32,9 @@ namespace PointOfSale
         /// </summary>
         public MenuSelectionComponent()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            var initialize = new ItemCustomization();
+            itemBorder.Child = initialize;
         }
 
         /// <summary>
@@ -36,7 +45,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void BriarheartBurgerClick(object sender, RoutedEventArgs e)
         {
+            BriarheartBurger briarheart = new BriarheartBurger();
             var bb = new ItemCustomization();
+            bb.DataContext = briarheart;
+            bb.itemName.Text = "Briarheart Burger";
             bb.bunBox.Visibility = Visibility.Visible;
             bb.ketchupBox.Visibility = Visibility.Visible;
             bb.mustardBox.Visibility = Visibility.Visible;
@@ -55,7 +67,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void DoubleDraugrClick(object sender, RoutedEventArgs e)
         {
+            DoubleDraugr doubleD = new DoubleDraugr();
             var dd = new ItemCustomization();
+            dd.DataContext = doubleD;
+            dd.itemName.Text = "Double Draugr";
             dd.bunBox.Visibility = Visibility.Visible;
             dd.ketchupBox.Visibility = Visibility.Visible;
             dd.mustardBox.Visibility = Visibility.Visible;
@@ -77,7 +92,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void ThalmorTripleClick(object sender, RoutedEventArgs e)
         {
+            ThalmorTriple thalmor = new ThalmorTriple();
             var tt = new ItemCustomization();
+            tt.DataContext = thalmor;
+            tt.itemName.Text = "Thalmor Triple";
             tt.bunBox.Visibility = Visibility.Visible;
             tt.ketchupBox.Visibility = Visibility.Visible;
             tt.mustardBox.Visibility = Visibility.Visible;
@@ -101,7 +119,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void GardenOrcOmeletteClick(object sender, RoutedEventArgs e)
         {
+            GardenOrcOmelette gardenOrc = new GardenOrcOmelette();
             var goo = new ItemCustomization();
+            goo.DataContext = gardenOrc;
+            goo.itemName.Text = "Garden Orc Omelette";
             goo.broccoliBox.Visibility = Visibility.Visible;
             goo.mushroomBox.Visibility = Visibility.Visible;
             goo.cheddarBox.Visibility = Visibility.Visible;
@@ -119,7 +140,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void PhillyPoacherClick(object sender, RoutedEventArgs e)
         {
+            PhillyPoacher philly = new PhillyPoacher();
             var pp = new ItemCustomization();
+            pp.DataContext = philly;
+            pp.itemName.Text = "Philly Poacher";
             pp.sirloinBox.Visibility = Visibility.Visible;
             pp.onionBox.Visibility = Visibility.Visible;
             pp.rollBox.Visibility = Visibility.Visible;
@@ -136,7 +160,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void SmokehouseSkeletonClick(object sender, RoutedEventArgs e)
         {
+            SmokehouseSkeleton smokehouse = new SmokehouseSkeleton();
             var ss = new ItemCustomization();
+            ss.itemName.Text = "Smokehouse Skeleton";
+            ss.DataContext = smokehouse;
             ss.eggBox.Visibility = Visibility.Visible;
             ss.hashBrownsBox.Visibility = Visibility.Visible;
             ss.pancakesBox.Visibility = Visibility.Visible;
@@ -154,7 +181,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void ThugsTBoneClick(object sender, RoutedEventArgs e)
         {
+            ThugsTBone thugs = new ThugsTBone();
             var ttb = new ItemCustomization();
+            ttb.DataContext = thugs;
+            ttb.itemName.Text = "Thugs T-Bone";
 
             ttb.doneButton.Visibility = Visibility.Visible;
             itemBorder.Child = ttb;
@@ -168,7 +198,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void DragonbornWaffleFriesClick(object sender, RoutedEventArgs e)
         {
+            DragonbornWaffleFries dragonborn = new DragonbornWaffleFries();
             var dwf = new ItemCustomization();
+            dwf.DataContext = dragonborn;
+            dwf.itemName.Text = "Dragonborn Waffle Fries";
             dwf.sizeText.Visibility = Visibility.Visible;
             dwf.sizeMenu.Visibility = Visibility.Visible;
 
@@ -184,7 +217,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void FriedMiraakClick(object sender, RoutedEventArgs e)
         {
+            FriedMiraak fried = new FriedMiraak();
             var fm = new ItemCustomization();
+            fm.DataContext = fried;
+            fm.itemName.Text = "Fried Miraak";
             fm.sizeText.Visibility = Visibility.Visible;
             fm.sizeMenu.Visibility = Visibility.Visible;
 
@@ -200,7 +236,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void MadOtarGritsClick(object sender, RoutedEventArgs e)
         {
+            MadOtarGrits mad = new MadOtarGrits();
             var mog = new ItemCustomization();
+            mog.DataContext = mad;
+            mog.itemName.Text = "Mad Otar Grits";
             mog.sizeText.Visibility = Visibility.Visible;
             mog.sizeMenu.Visibility = Visibility.Visible;
 
@@ -216,7 +255,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void VokunSaladClick(object sender, RoutedEventArgs e)
         {
+            VokunSalad vokun = new VokunSalad();
             var vs = new ItemCustomization();
+            vs.DataContext = vokun;
+            vs.itemName.Text = "Vokun Salad";
             vs.sizeText.Visibility = Visibility.Visible;
             vs.sizeMenu.Visibility = Visibility.Visible;
 
@@ -232,9 +274,13 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void AretinoAppleJuiceClick(object sender, RoutedEventArgs e)
         {
+            AretinoAppleJuice aretino = new AretinoAppleJuice();
             var aaj = new ItemCustomization();
+            aaj.DataContext = aretino;
+            aaj.itemName.Text = "Aretino Apple Juice";
             aaj.sizeText.Visibility = Visibility.Visible;
             aaj.sizeMenu.Visibility = Visibility.Visible;
+            aaj.iceBox.Visibility = Visibility.Visible;
 
             aaj.doneButton.Visibility = Visibility.Visible;
             itemBorder.Child = aaj;
@@ -248,9 +294,13 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void CandlehearthCoffeeClick(object sender, RoutedEventArgs e)
         {
+            CandlehearthCoffee candlehearth = new CandlehearthCoffee();
             var cc = new ItemCustomization();
+            cc.DataContext = candlehearth;
+            cc.itemName.Text = "Candlehearth Coffee";
             cc.sizeText.Visibility = Visibility.Visible;
             cc.sizeMenu.Visibility = Visibility.Visible;
+            cc.iceBox.Visibility = Visibility.Visible;
 
             cc.doneButton.Visibility = Visibility.Visible;
             itemBorder.Child = cc;
@@ -264,9 +314,13 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void MarkarthMilkClick(object sender, RoutedEventArgs e)
         {
+            MarkarthMilk markarth = new MarkarthMilk();
             var mm = new ItemCustomization();
+            mm.DataContext = markarth;
+            mm.itemName.Text = "Markarth Milk";
             mm.sizeText.Visibility = Visibility.Visible;
             mm.sizeMenu.Visibility = Visibility.Visible;
+            mm.iceBox.Visibility = Visibility.Visible;
 
             mm.doneButton.Visibility = Visibility.Visible;
             itemBorder.Child = mm;
@@ -280,11 +334,15 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void SailorSodaClick(object sender, RoutedEventArgs e)
         {
+            SailorSoda sailor = new SailorSoda();
             var ss = new ItemCustomization();
+            ss.DataContext = sailor;
+            ss.itemName.Text = "Sailor Soda";
             ss.sizeText.Visibility = Visibility.Visible;
             ss.sizeMenu.Visibility = Visibility.Visible;
             ss.flavorText.Visibility = Visibility.Visible;
             ss.flavorMenu.Visibility = Visibility.Visible;
+            ss.iceBox.Visibility = Visibility.Visible;
 
             ss.doneButton.Visibility = Visibility.Visible;
             itemBorder.Child = ss;
@@ -298,9 +356,14 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void WarriorWaterClick(object sender, RoutedEventArgs e)
         {
+            WarriorWater warrior = new WarriorWater();
             var ww = new ItemCustomization();
+            ww.DataContext = warrior;
+            ww.itemName.Text = "Warrior Water";
             ww.sizeText.Visibility = Visibility.Visible;
             ww.sizeMenu.Visibility = Visibility.Visible;
+            ww.iceBox.Visibility = Visibility.Visible;
+            ww.lemonBox.Visibility = Visibility.Visible;
 
             ww.doneButton.Visibility = Visibility.Visible;
             itemBorder.Child = ww;

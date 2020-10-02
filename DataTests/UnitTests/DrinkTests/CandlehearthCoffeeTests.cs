@@ -9,6 +9,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Drinks;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -163,6 +164,51 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             Assert.IsAssignableFrom<IOrderItem>(new CandlehearthCoffee());
             Assert.IsAssignableFrom<Drink>(new CandlehearthCoffee());
+        }
+
+        [Fact]
+        public void ChangingIceNotifiesIceProperty()
+        {
+            var cc = new CandlehearthCoffee();
+
+            Assert.PropertyChanged(cc, "Ice", () =>
+            {
+                cc.Ice = true;
+            });
+
+            Assert.PropertyChanged(cc, "Ice", () =>
+            {
+                cc.Ice = false;
+            });
+        }
+
+
+        [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            var cc = new CandlehearthCoffee();
+
+            Assert.PropertyChanged(cc, "Size", () =>
+            {
+                cc.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(cc, "Size", () =>
+            {
+                cc.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(cc, "Size", () =>
+            {
+                cc.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ImplementsINotifyPropertyChangedInterface()
+        {
+            var cc = new CandlehearthCoffee();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(cc);
         }
     }
 }

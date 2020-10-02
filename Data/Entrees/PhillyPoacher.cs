@@ -3,12 +3,15 @@
  * Class name: PhillyPoacher.cs
  * Purpose: Class used to represent the Entree Philly Poacher 
  */
+using System.ComponentModel;
 using System.Collections.Generic;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class PhillyPoacher : Entree, IOrderItem
+    public class PhillyPoacher : Entree, IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private bool sirloin = true;
         private bool onion = true;
         private bool roll = true;
@@ -19,7 +22,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Sirloin
         {
             get => sirloin;
-            set => sirloin = value;
+            set
+            {
+                sirloin = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sirloin"));
+            }
         }
 
         /// <summary>
@@ -28,7 +35,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Onion
         {
             get => onion;
-            set => onion = value;
+            set
+            {
+                onion = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Onion"));
+            }
         }
 
         /// <summary>
@@ -37,7 +48,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Roll
         {
             get => roll;
-            set => roll = value;
+            set
+            {
+                roll = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Roll"));
+            }
         }
 
         /// <summary>

@@ -4,121 +4,142 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
+             xmlns:enums="clr-namespace:BleakwindBuffet.Data.Enums;assembly=Data"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="590">
-    <Grid>
+             d:DesignHeight="450" d:DesignWidth="450">
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="size" MethodName="GetValues" ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enums:Size"></x:Type>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="flavor" MethodName="GetValues" ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enums:SodaFlavor"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>
+    <Grid MinWidth="300">
         <StackPanel>
             <TextBlock Name="itemName" FontSize="17" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,10,0,0" Text="Name"/>
-        <CheckBox Name="bunBox" Visibility="Collapsed" Content="Bun"  HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="True">
+            <CheckBox Name="bunBox" Visibility="Collapsed" Content="Bun"  HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="{Binding Path=Bun}">
             <CheckBox.LayoutTransform>
-                <ScaleTransform ScaleX="2" ScaleY="2" />
+                <ScaleTransform ScaleX="3" ScaleY="3" />
             </CheckBox.LayoutTransform>
         </CheckBox>
-            <CheckBox Name="ketchupBox" Visibility="Collapsed" Content="Ketchup"  HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="True">
+            <CheckBox Name="ketchupBox" Visibility="Collapsed" Content="Ketchup"  HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="{Binding Path=Ketchup}">
             <CheckBox.LayoutTransform>
-                <ScaleTransform ScaleX="2" ScaleY="2" />
+                <ScaleTransform ScaleX="3" ScaleY="3" />
             </CheckBox.LayoutTransform>
         </CheckBox>
-            <CheckBox Name="mustardBox" Content="Mustard"  Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="True">
+            <CheckBox Name="mustardBox" Content="Mustard"  Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="{Binding Path=Mustard}">
             <CheckBox.LayoutTransform>
-                <ScaleTransform ScaleX="2" ScaleY="2" />
+                <ScaleTransform ScaleX="3" ScaleY="3" />
             </CheckBox.LayoutTransform>
         </CheckBox>
-            <CheckBox Name="pickleBox" Content="Pickle" Visibility="Collapsed"  HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="True">
+            <CheckBox Name="pickleBox" Content="Pickle" Visibility="Collapsed"  HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="{Binding Path=Pickle}">
             <CheckBox.LayoutTransform>
-                <ScaleTransform ScaleX="2" ScaleY="2" />
+                <ScaleTransform ScaleX="3" ScaleY="3" />
             </CheckBox.LayoutTransform>
         </CheckBox>
-            <CheckBox Name="cheeseBox" Content="Cheese" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="True">
+            <CheckBox Name="cheeseBox" Content="Cheese" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="{Binding Path=Cheese}">
             <CheckBox.LayoutTransform>
-                <ScaleTransform ScaleX="2" ScaleY="2" />
+                <ScaleTransform ScaleX="3" ScaleY="3" />
             </CheckBox.LayoutTransform>
         </CheckBox>
-            <CheckBox Name="tomatoBox" Content="Tomato" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="True">
+            <CheckBox Name="tomatoBox" Content="Tomato" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="{Binding Path=Tomato}">
             <CheckBox.LayoutTransform>
-                <ScaleTransform ScaleX="2" ScaleY="2" />
+                <ScaleTransform ScaleX="3" ScaleY="3" />
             </CheckBox.LayoutTransform>
         </CheckBox>
-            <CheckBox Name="lettuceBox" Content="Lettuce" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="True">
+            <CheckBox Name="lettuceBox" Content="Lettuce" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="{Binding Path=Lettuce}">
             <CheckBox.LayoutTransform>
-                <ScaleTransform ScaleX="2" ScaleY="2" />
+                <ScaleTransform ScaleX="3" ScaleY="3" />
             </CheckBox.LayoutTransform>
         </CheckBox>
-            <CheckBox Name="mayoBox" Content="Mayo" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="True">
+            <CheckBox Name="mayoBox" Content="Mayo" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="{Binding Path=Mayo}">
             <CheckBox.LayoutTransform>
-                <ScaleTransform ScaleX="2" ScaleY="2" />
+                <ScaleTransform ScaleX="3" ScaleY="3" />
             </CheckBox.LayoutTransform>
         </CheckBox>
-            <CheckBox Name="baconBox" Content="Bacon" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="True">
+            <CheckBox Name="baconBox" Content="Bacon" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="{Binding Path=Bacon}">
             <CheckBox.LayoutTransform>
-                <ScaleTransform ScaleX="2" ScaleY="2" />
+                <ScaleTransform ScaleX="3" ScaleY="3" />
             </CheckBox.LayoutTransform>
         </CheckBox>
-            <CheckBox Name="eggBox" Content="Egg" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="True">
+            <CheckBox Name="eggBox" Content="Egg" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="{Binding Path=Egg}">
             <CheckBox.LayoutTransform>
-                <ScaleTransform ScaleX="2" ScaleY="2" />
+                <ScaleTransform ScaleX="3" ScaleY="3" />
             </CheckBox.LayoutTransform>
         </CheckBox>
-            <CheckBox Name="broccoliBox" Content="Broccoli" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="True">
+            <CheckBox Name="broccoliBox" Content="Broccoli" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="{Binding Path=Broccoli}">
             <CheckBox.LayoutTransform>
-                <ScaleTransform ScaleX="2" ScaleY="2" />
+                <ScaleTransform ScaleX="3" ScaleY="3" />
             </CheckBox.LayoutTransform>
         </CheckBox>
-            <CheckBox Name="cheddarBox" Content="Cheddar" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="True">
+            <CheckBox Name="cheddarBox" Content="Cheddar" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="{Binding Path=Cheddar}">
             <CheckBox.LayoutTransform>
-                <ScaleTransform ScaleX="2" ScaleY="2" />
+                <ScaleTransform ScaleX="3" ScaleY="3" />
             </CheckBox.LayoutTransform>
         </CheckBox>
-            <CheckBox Name="mushroomBox" Content="Mushrooms" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="True">
+            <CheckBox Name="mushroomBox" Content="Mushrooms" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="{Binding Path=Mushrooms}">
             <CheckBox.LayoutTransform>
-                <ScaleTransform ScaleX="2" ScaleY="2" />
+                <ScaleTransform ScaleX="3" ScaleY="3" />
             </CheckBox.LayoutTransform>
         </CheckBox>
-            <CheckBox Name="sirloinBox" Content="Sirloin" Visibility="Collapsed" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="True">
+            <CheckBox Name="sirloinBox" Content="Sirloin" Visibility="Collapsed" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="{Binding Path=Sirloin}">
             <CheckBox.LayoutTransform>
-                <ScaleTransform ScaleX="2" ScaleY="2" />
+                <ScaleTransform ScaleX="3" ScaleY="3" />
             </CheckBox.LayoutTransform>
         </CheckBox>
-            <CheckBox Name="rollBox" Content="Roll" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="True">
+            <CheckBox Name="rollBox" Content="Roll" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="{Binding Path=Roll}">
             <CheckBox.LayoutTransform>
-                <ScaleTransform ScaleX="2" ScaleY="2" />
+                <ScaleTransform ScaleX="3" ScaleY="3" />
             </CheckBox.LayoutTransform>
         </CheckBox>
-            <CheckBox Name="onionBox" Content="Onion" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="True">
+            <CheckBox Name="onionBox" Content="Onion" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="{Binding Path=Onion}">
             <CheckBox.LayoutTransform>
-                <ScaleTransform ScaleX="2" ScaleY="2" />
+                <ScaleTransform ScaleX="3" ScaleY="3" />
             </CheckBox.LayoutTransform>
         </CheckBox>
-            <CheckBox Name="sausageBox" Content="Sausage" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="True">
+        <CheckBox Name="sausageBox" Content="Sausage" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="{Binding Path=SausageLink}">
             <CheckBox.LayoutTransform>
-                <ScaleTransform ScaleX="2" ScaleY="2" />
+                <ScaleTransform ScaleX="3" ScaleY="3" />
             </CheckBox.LayoutTransform>
         </CheckBox>
-            <CheckBox Name="hashBrownsBox" Content="Hash Browns" Visibility="Collapsed" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="True">
+        <CheckBox Name="hashBrownsBox" Content="Hash Browns" Visibility="Collapsed" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="{Binding Path=HashBrowns}">
             <CheckBox.LayoutTransform>
-                <ScaleTransform ScaleX="2" ScaleY="2" />
+                <ScaleTransform ScaleX="3" ScaleY="3" />
             </CheckBox.LayoutTransform>
         </CheckBox>
-            <CheckBox Name="pancakesBox" Content="Pancakes" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="True">
-            <CheckBox.LayoutTransform>
-                <ScaleTransform ScaleX="2" ScaleY="2" />
-            </CheckBox.LayoutTransform>
-        </CheckBox>
-        <TextBlock Visibility="Collapsed" Text="Size" Name="sizeText" FontSize="17"/>
-        <ComboBox Visibility="Collapsed" Name="sizeMenu" FontSize="17" >
-            <ComboBoxItem Tag="smallSize" Content="Small"/>
-            <ComboBoxItem Tag="mediumSize" Content="Medium"/>
-            <ComboBoxItem Tag="largeSize" Content="Large"/>
-        </ComboBox>
-        <TextBlock Visibility="Collapsed" Text="Flavor" Name="flavorText" FontSize="17"/>
-        <ComboBox Visibility="Collapsed" Name="flavorMenu" FontSize="17" >
-            <ComboBoxItem Tag="cherryFlavor" Content="Cherry"/>
-            <ComboBoxItem Tag="blackberryFlavor" Content="Blackberry"/>
-            <ComboBoxItem Tag="grapefruitFlavor" Content="Grapefruit"/>
-            <ComboBoxItem Tag="lemonFlavor" Content="Lemon"/>
-            <ComboBoxItem Tag="peachFlavor" Content="Peach"/>
-            <ComboBoxItem Tag="watermelonFlavor" Content="Watermelon"/>
-        </ComboBox>
+            <CheckBox Name="iceBox" Content="Ice" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="{Binding Path=Ice}">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="3" ScaleY="3" />
+                </CheckBox.LayoutTransform>
+            </CheckBox>
+            <CheckBox Name="lemonBox" Content="Lemon" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="{Binding Path=Lemon}">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="3" ScaleY="3" />
+                </CheckBox.LayoutTransform>
+            </CheckBox>
+            <CheckBox Name="pancakesBox" Content="Pancakes" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="{Binding Path=Pancake}">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="3" ScaleY="3" />
+                </CheckBox.LayoutTransform>
+            </CheckBox>
+            <TextBlock Visibility="Collapsed" Text="Size" Name="sizeText" FontSize="17"/>
+            <ComboBox Visibility="Collapsed" Name="sizeMenu" FontSize="17" ItemsSource="{Binding Source={StaticResource size}}" SelectedItem="{Binding Path=Size}">
+                <ComboBox.LayoutTransform>
+                    <ScaleTransform ScaleY="2" ScaleX="2"/>
+                </ComboBox.LayoutTransform>
+            </ComboBox>
+            <TextBlock Visibility="Collapsed" Text="Flavor" Name="flavorText" FontSize="17"/>
+            <ComboBox Visibility="Collapsed" Name="flavorMenu" FontSize="17" ItemsSource="{Binding Source={StaticResource flavor}}" SelectedItem="{Binding Path=Flavor}" >
+                <ComboBox.LayoutTransform>
+                    <ScaleTransform ScaleY="2" ScaleX="2"/>
+                </ComboBox.LayoutTransform>
+            </ComboBox>
         
         </StackPanel>
         <Button Name="doneButton" Visibility="Hidden" Content="Done" FontSize="17" Width="80" Height="40" VerticalAlignment="Bottom" Click="DoneButtonClick"/>

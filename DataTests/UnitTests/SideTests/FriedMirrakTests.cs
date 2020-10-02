@@ -10,6 +10,7 @@ using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
 using System.Runtime.InteropServices.ComTypes;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
@@ -79,6 +80,34 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             Assert.IsAssignableFrom<IOrderItem>(new FriedMiraak());
             Assert.IsAssignableFrom<Side>(new FriedMiraak());
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            var fm = new FriedMiraak();
+
+            Assert.PropertyChanged(fm, "Size", () =>
+            {
+                fm.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(fm, "Size", () =>
+            {
+                fm.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(fm, "Size", () =>
+            {
+                fm.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ImplementsINotifyPropertyChangedInterface()
+        {
+            var fm = new FriedMiraak();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(fm);
         }
     }
 }

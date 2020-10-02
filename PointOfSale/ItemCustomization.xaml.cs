@@ -1,5 +1,11 @@
-﻿using System;
+﻿/*
+ * Author: Nolan Meyer
+ * Class name: ItemCustomization.xaml.cs
+ * Purpose: Class used to control the ItemCustomization xaml
+ */
+using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,6 +16,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data.Sides;
 
 namespace PointOfSale
 {
@@ -49,12 +60,15 @@ namespace PointOfSale
             rollBox.Visibility = Visibility.Collapsed;
             sausageBox.Visibility = Visibility.Collapsed;
             hashBrownsBox.Visibility = Visibility.Collapsed;
-            pancakesBox.Visibility = Visibility.Collapsed; 
+            pancakesBox.Visibility = Visibility.Collapsed;
+            iceBox.Visibility = Visibility.Collapsed;
+            lemonBox.Visibility = Visibility.Collapsed;
             sizeText.Visibility = Visibility.Collapsed;
             sizeMenu.Visibility = Visibility.Collapsed;
             flavorMenu.Visibility = Visibility.Collapsed;
             flavorText.Visibility = Visibility.Collapsed;
             doneButton.Visibility = Visibility.Hidden;
         }
+
     }
 }

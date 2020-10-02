@@ -8,6 +8,7 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -135,6 +136,77 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             Assert.IsAssignableFrom<IOrderItem>(new SmokehouseSkeleton());
             Assert.IsAssignableFrom<Entree>(new SmokehouseSkeleton());
+        }
+
+        [Fact]
+        public void ChangingEggNotifiesEggProperty()
+        {
+            var ss = new SmokehouseSkeleton();
+
+            Assert.PropertyChanged(ss, "Egg", () =>
+            {
+                ss.Egg = true;
+            });
+
+            Assert.PropertyChanged(ss, "Egg", () =>
+            {
+                ss.Egg = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingPancakeNotifiesPancakeProperty()
+        {
+            var ss = new SmokehouseSkeleton();
+
+            Assert.PropertyChanged(ss, "Pancake", () =>
+            {
+                ss.Pancake = true;
+            });
+
+            Assert.PropertyChanged(ss, "Pancake", () =>
+            {
+                ss.Pancake = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingSausageLinkNotifiesSausageLinkProperty()
+        {
+            var ss = new SmokehouseSkeleton();
+
+            Assert.PropertyChanged(ss, "SausageLink", () =>
+            {
+                ss.SausageLink = true;
+            });
+
+            Assert.PropertyChanged(ss, "SausageLink", () =>
+            {
+                ss.SausageLink = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingHashBrownsNotifiesHashBrownsProperty()
+        {
+            var ss = new SmokehouseSkeleton();
+
+            Assert.PropertyChanged(ss, "HashBrowns", () =>
+            {
+                ss.HashBrowns = true;
+            });
+
+            Assert.PropertyChanged(ss, "HashBrowns", () =>
+            {
+                ss.HashBrowns = false;
+            });
+        }
+
+        [Fact]
+        public void ImplementsINotifyPropertyChangedInterface()
+        {
+            var ss = new SmokehouseSkeleton();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(ss);
         }
     }
 }

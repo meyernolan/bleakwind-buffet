@@ -8,6 +8,7 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -135,6 +136,77 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             Assert.IsAssignableFrom<IOrderItem>(new GardenOrcOmelette());
             Assert.IsAssignableFrom<Entree>(new GardenOrcOmelette());
+        }
+
+        [Fact]
+        public void ChangingBroccoliNotifiesBroccoliProperty()
+        {
+            var goo = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(goo, "Broccoli", () =>
+            {
+                goo.Broccoli = true;
+            });
+
+            Assert.PropertyChanged(goo, "Broccoli", () =>
+            {
+                goo.Broccoli = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingMushroomsNotifiesMushroomsProperty()
+        {
+            var goo = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(goo, "Mushrooms", () =>
+            {
+                goo.Mushrooms = true;
+            });
+
+            Assert.PropertyChanged(goo, "Mushrooms", () =>
+            {
+                goo.Mushrooms = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingCheddarNotifiesCheddarProperty()
+        {
+            var goo = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(goo, "Cheddar", () =>
+            {
+                goo.Cheddar = true;
+            });
+
+            Assert.PropertyChanged(goo, "Cheddar", () =>
+            {
+                goo.Cheddar = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingTomatoNotifiesTomatoProperty()
+        {
+            var goo = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(goo, "Tomato", () =>
+            {
+                goo.Tomato = true;
+            });
+
+            Assert.PropertyChanged(goo, "Tomato", () =>
+            {
+                goo.Tomato = false;
+            });
+        }
+
+        [Fact]
+        public void ImplementsINotifyPropertyChangedInterface()
+        {
+            var goo = new GardenOrcOmelette();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(goo);
         }
     }
 }

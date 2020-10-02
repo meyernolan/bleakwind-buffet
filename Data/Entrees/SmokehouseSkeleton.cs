@@ -4,11 +4,15 @@
  * Purpose: Class used to represent the Entree Smokehouse Skeleton 
  */
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class SmokehouseSkeleton : Entree, IOrderItem
+    public class SmokehouseSkeleton : Entree, IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private bool sausageLink = true;
         private bool egg = true;
         private bool hashBrowns = true;
@@ -20,7 +24,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Egg
         {
             get => egg;
-            set => egg = value;
+            set
+            {
+                egg = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Egg"));
+            }
         }
 
         /// <summary>
@@ -29,7 +37,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool SausageLink
         {
             get => sausageLink;
-            set => sausageLink = value;
+            set
+            {
+                sausageLink = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SausageLink"));
+            }
         }
 
         /// <summary>
@@ -38,7 +50,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool HashBrowns
         {
             get => hashBrowns;
-            set => hashBrowns = value;
+            set
+            {
+                hashBrowns = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("HashBrowns"));
+            }
         }
 
         /// <summary>
@@ -47,7 +63,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Pancake
         {
             get => pancake;
-            set => pancake = value;
+            set
+            {
+                pancake = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pancake"));
+            }
         }
 
         /// <summary>
