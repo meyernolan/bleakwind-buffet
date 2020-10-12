@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="900">
     <Grid>
-        <local:OrderComponent MinWidth="150" Margin="0,5,5,5"/>
+        <local:OrderComponent x:Name="orderComponent" MinWidth="150" Margin="0,5,5,5"/>
     </Grid>
 </Window>

@@ -74,8 +74,8 @@
             <Button Name="warriorWaterButton" FontSize="12" Click="WarriorWaterClick" Content="Warrior Water" Grid.Row="4"/>
         </Grid>
 
-        <Button Grid.Column="1" Grid.Row="3" Content="Cancel Order" FontSize="12" Margin="0,5,0,0"/>
-        <Button Grid.Column="2" Grid.Row="3" Content="Done" FontSize="12" Margin="0,5,0,0"/>
+        <Button Name="cancelOrderButton" Click="CancelOrderClick" Grid.Column="1" Grid.Row="3" Content="Cancel Order" FontSize="12" Margin="0,5,0,0"/>
+        <Button Name="doneWithOrderButton" Click="DoneWithOrderClick" Grid.Column="2" Grid.Row="3" Content="Done" FontSize="12" Margin="0,5,0,0"/>
         <Border Name="itemBorder" Grid.Column="3" Grid.RowSpan="4"/>
     </Grid>
 </UserControl>

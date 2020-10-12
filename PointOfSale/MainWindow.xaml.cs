@@ -17,6 +17,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
+using BleakwindBuffet.Data;
 
 namespace PointOfSale
 {
@@ -26,11 +28,13 @@ namespace PointOfSale
     public partial class MainWindow : Window
     {
         /// <summary>
-        /// initializes the main window
+        /// initializes the main window.
+        /// sets the DataContext to the Order.
         /// </summary>
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new Order();
         }
     }
 }

@@ -17,6 +17,9 @@ namespace BleakwindBuffet.Data.Drinks
         private bool decaf = false;
         private bool roomForCream = false;
 
+        /// <summary>
+        /// Event handler for a property changed event.
+        /// </summary>
         public new event PropertyChangedEventHandler PropertyChanged;
 
         private Size size = Size.Small;
@@ -32,6 +35,8 @@ namespace BleakwindBuffet.Data.Drinks
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
             }
         }
 
@@ -45,6 +50,7 @@ namespace BleakwindBuffet.Data.Drinks
             {
                 ice = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 

@@ -100,6 +100,34 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             {
                 mog.Size = Size.Large;
             });
+            Assert.PropertyChanged(mog, "Calories", () =>
+            {
+                mog.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(mog, "Calories", () =>
+            {
+                mog.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(mog, "Calories", () =>
+            {
+                mog.Size = Size.Large;
+            });
+            Assert.PropertyChanged(mog, "Price", () =>
+            {
+                mog.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(mog, "Price", () =>
+            {
+                mog.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(mog, "Price", () =>
+            {
+                mog.Size = Size.Large;
+            });
         }
 
         [Fact]

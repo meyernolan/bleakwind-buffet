@@ -139,6 +139,34 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             {
                 AJ.Size = Size.Large;
             });
+            Assert.PropertyChanged(AJ, "Calories", () =>
+            {
+                AJ.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(AJ, "Calories", () =>
+            {
+                AJ.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(AJ, "Calories", () =>
+            {
+                AJ.Size = Size.Large;
+            });
+            Assert.PropertyChanged(AJ, "Price", () =>
+            {
+                AJ.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(AJ, "Price", () =>
+            {
+                AJ.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(AJ, "Price", () =>
+            {
+                AJ.Size = Size.Large;
+            });
         }
 
         [Fact]

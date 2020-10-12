@@ -16,9 +16,11 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public abstract class Drink : IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event handler for a property changed event.
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
-        
         /// <summary>
         /// gets the price of the drink
         /// </summary>
@@ -33,5 +35,13 @@ namespace BleakwindBuffet.Data.Drinks
         /// gets the special instructions for the drink
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
+
+        /// <summary>
+        /// Gets the name as a property
+        /// </summary>
+        public string Name
+        {
+            get => this.ToString();
+        }
     }
 }

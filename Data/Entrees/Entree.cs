@@ -5,6 +5,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -14,6 +15,11 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public abstract class Entree : IOrderItem
     {
+        /// <summary>
+        /// Event handler for a property changed event.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// gets the price of the entree
         /// </summary>
@@ -28,5 +34,13 @@ namespace BleakwindBuffet.Data.Entrees
         /// gets the special instructions of the entree
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
+
+        /// <summary>
+        /// Gets the name as a property
+        /// </summary>
+        public string Name
+        {
+            get => this.ToString();
+        }
     }
 }

@@ -69,6 +69,5 @@ namespace PointOfSale
             flavorText.Visibility = Visibility.Collapsed;
             doneButton.Visibility = Visibility.Hidden;
         }
-
     }
 }

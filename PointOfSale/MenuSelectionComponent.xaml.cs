@@ -57,6 +57,10 @@ namespace PointOfSale
 
             bb.doneButton.Visibility = Visibility.Visible;
             itemBorder.Child = bb;
+            if (DataContext is Order order)
+            {
+                order.Add(briarheart);
+            }
         }
 
         /// <summary>
@@ -82,6 +86,10 @@ namespace PointOfSale
 
             dd.doneButton.Visibility = Visibility.Visible;
             itemBorder.Child = dd;
+            if (DataContext is Order order)
+            {
+                order.Add(doubleD);
+            }
         }
 
         /// <summary>
@@ -109,6 +117,10 @@ namespace PointOfSale
 
             tt.doneButton.Visibility = Visibility.Visible;
             itemBorder.Child = tt;
+            if(DataContext is Order order)
+            {
+                order.Add(thalmor);
+            }
         }
 
         /// <summary>
@@ -130,6 +142,10 @@ namespace PointOfSale
 
             goo.doneButton.Visibility = Visibility.Visible;
             itemBorder.Child = goo;
+            if (DataContext is Order order)
+            {
+                order.Add(gardenOrc);
+            }
         }
 
         /// <summary>
@@ -150,6 +166,10 @@ namespace PointOfSale
 
             pp.doneButton.Visibility = Visibility.Visible;
             itemBorder.Child = pp;
+            if (DataContext is Order order)
+            {
+                order.Add(philly);
+            }
         }
 
         /// <summary>
@@ -171,6 +191,10 @@ namespace PointOfSale
 
             ss.doneButton.Visibility = Visibility.Visible;
             itemBorder.Child = ss;
+            if (DataContext is Order order)
+            {
+                order.Add(smokehouse);
+            }
         }
 
         /// <summary>
@@ -188,6 +212,10 @@ namespace PointOfSale
 
             ttb.doneButton.Visibility = Visibility.Visible;
             itemBorder.Child = ttb;
+            if (DataContext is Order order)
+            {
+                order.Add(thugs);
+            }
         }
 
         /// <summary>
@@ -206,7 +234,11 @@ namespace PointOfSale
             dwf.sizeMenu.Visibility = Visibility.Visible;
 
             dwf.doneButton.Visibility = Visibility.Visible;
-            itemBorder.Child = dwf;
+            itemBorder.Child = dwf; 
+            if (DataContext is Order order)
+            {
+                order.Add(dragonborn);
+            }
         }
 
         /// <summary>
@@ -226,6 +258,10 @@ namespace PointOfSale
 
             fm.doneButton.Visibility = Visibility.Visible;
             itemBorder.Child = fm;
+            if (DataContext is Order order)
+            {
+                order.Add(fried);
+            }
         }
 
         /// <summary>
@@ -245,6 +281,10 @@ namespace PointOfSale
 
             mog.doneButton.Visibility = Visibility.Visible;
             itemBorder.Child = mog;
+            if (DataContext is Order order)
+            {
+                order.Add(mad);
+            }
         }
 
         /// <summary>
@@ -264,6 +304,10 @@ namespace PointOfSale
 
             vs.doneButton.Visibility = Visibility.Visible;
             itemBorder.Child = vs;
+            if (DataContext is Order order)
+            {
+                order.Add(vokun);
+            }
         }
 
         /// <summary>
@@ -284,6 +328,10 @@ namespace PointOfSale
 
             aaj.doneButton.Visibility = Visibility.Visible;
             itemBorder.Child = aaj;
+            if (DataContext is Order order)
+            {
+                order.Add(aretino);
+            }
         }
 
         /// <summary>
@@ -304,6 +352,10 @@ namespace PointOfSale
 
             cc.doneButton.Visibility = Visibility.Visible;
             itemBorder.Child = cc;
+            if (DataContext is Order order)
+            {
+                order.Add(candlehearth);
+            }
         }
 
         /// <summary>
@@ -324,6 +376,10 @@ namespace PointOfSale
 
             mm.doneButton.Visibility = Visibility.Visible;
             itemBorder.Child = mm;
+            if (DataContext is Order order)
+            {
+                order.Add(markarth);
+            }
         }
 
         /// <summary>
@@ -346,6 +402,10 @@ namespace PointOfSale
 
             ss.doneButton.Visibility = Visibility.Visible;
             itemBorder.Child = ss;
+            if (DataContext is Order order)
+            {
+                order.Add(sailor);
+            }
         }
 
         /// <summary>
@@ -367,6 +427,214 @@ namespace PointOfSale
 
             ww.doneButton.Visibility = Visibility.Visible;
             itemBorder.Child = ww;
+            if (DataContext is Order order)
+            {
+                order.Add(warrior);
+            }
+        }
+
+
+        public void DoneWithOrderClick(object sender, RoutedEventArgs e)
+        {
+            MainWindow parentWindow = (MainWindow)MainWindow.GetWindow(this);
+            /*if(parentWindow.DataContext is Order order)
+            {
+                order.Clear();
+            }*/
+            parentWindow.DataContext = new Order();
+        }
+
+
+        public void CancelOrderClick(object sender, RoutedEventArgs e)
+        {
+            MainWindow parentWindow = (MainWindow)MainWindow.GetWindow(this);
+            /*if(parentWindow.DataContext is Order order)
+            {
+                order.Clear();
+            }*/
+            parentWindow.DataContext = new Order();
+        }
+
+
+        /// <summary>
+        /// method for switching edit screens when an item already in the order is selsected.
+        /// </summary>
+        /// <param name="item"> The item whose sceen is to be shown.</param>
+        /// <returns>the item</returns>
+        public IOrderItem editItem(IOrderItem item)
+        {
+            if(item is BriarheartBurger briarheart)
+            {
+                var bb = new ItemCustomization();
+                bb.DataContext = briarheart;
+                bb.itemName.Text = "Briarheart Burger";
+                bb.bunBox.Visibility = Visibility.Visible;
+                bb.ketchupBox.Visibility = Visibility.Visible;
+                bb.mustardBox.Visibility = Visibility.Visible;
+                bb.pickleBox.Visibility = Visibility.Visible;
+                bb.cheeseBox.Visibility = Visibility.Visible;
+
+                bb.doneButton.Visibility = Visibility.Visible;
+                itemBorder.Child = bb;
+            }
+            else if(item is DoubleDraugr doubleD)
+            {
+                var dd = new ItemCustomization();
+                dd.DataContext = doubleD;
+                dd.itemName.Text = "Double Draugr";
+                dd.bunBox.Visibility = Visibility.Visible;
+                dd.ketchupBox.Visibility = Visibility.Visible;
+                dd.mustardBox.Visibility = Visibility.Visible;
+                dd.pickleBox.Visibility = Visibility.Visible;
+                dd.cheeseBox.Visibility = Visibility.Visible;
+                dd.tomatoBox.Visibility = Visibility.Visible;
+                dd.lettuceBox.Visibility = Visibility.Visible;
+                dd.mayoBox.Visibility = Visibility.Visible;
+
+                dd.doneButton.Visibility = Visibility.Visible;
+                itemBorder.Child = dd;
+            }
+            else if(item is ThalmorTriple thalmor)
+            {
+                var tt = new ItemCustomization();
+                tt.DataContext = thalmor;
+                tt.itemName.Text = "Thalmor Triple";
+                tt.bunBox.Visibility = Visibility.Visible;
+                tt.ketchupBox.Visibility = Visibility.Visible;
+                tt.mustardBox.Visibility = Visibility.Visible;
+                tt.pickleBox.Visibility = Visibility.Visible;
+                tt.cheeseBox.Visibility = Visibility.Visible;
+                tt.tomatoBox.Visibility = Visibility.Visible;
+                tt.lettuceBox.Visibility = Visibility.Visible;
+                tt.mayoBox.Visibility = Visibility.Visible;
+                tt.baconBox.Visibility = Visibility.Visible;
+                tt.eggBox.Visibility = Visibility.Visible;
+
+                tt.doneButton.Visibility = Visibility.Visible;
+                itemBorder.Child = tt;
+            }
+            else if(item is GardenOrcOmelette garden)
+            {
+                var goo = new ItemCustomization();
+                goo.DataContext = garden;
+                goo.itemName.Text = "Garden Orc Omelette";
+                goo.broccoliBox.Visibility = Visibility.Visible;
+                goo.mushroomBox.Visibility = Visibility.Visible;
+                goo.cheddarBox.Visibility = Visibility.Visible;
+                goo.tomatoBox.Visibility = Visibility.Visible;
+
+                goo.doneButton.Visibility = Visibility.Visible;
+                itemBorder.Child = goo;
+            }
+            else if(item is SmokehouseSkeleton smokehouse)
+            {
+                var ss = new ItemCustomization();
+                ss.itemName.Text = "Smokehouse Skeleton";
+                ss.DataContext = smokehouse;
+                ss.eggBox.Visibility = Visibility.Visible;
+                ss.hashBrownsBox.Visibility = Visibility.Visible;
+                ss.pancakesBox.Visibility = Visibility.Visible;
+                ss.sausageBox.Visibility = Visibility.Visible;
+
+                ss.doneButton.Visibility = Visibility.Visible;
+                itemBorder.Child = ss;
+            }
+            else if (item is PhillyPoacher philly)
+            {
+                var pp = new ItemCustomization();
+                pp.DataContext = philly;
+                pp.itemName.Text = "Philly Poacher";
+                pp.sirloinBox.Visibility = Visibility.Visible;
+                pp.onionBox.Visibility = Visibility.Visible;
+                pp.rollBox.Visibility = Visibility.Visible;
+
+                pp.doneButton.Visibility = Visibility.Visible;
+                itemBorder.Child = pp;
+            }
+            else if(item is ThugsTBone thugs)
+            {
+                var ttb = new ItemCustomization();
+                ttb.DataContext = thugs;
+                ttb.itemName.Text = "Thugs T-Bone";
+
+                ttb.doneButton.Visibility = Visibility.Visible;
+                itemBorder.Child = ttb;
+            }
+            else if(item is Side side)
+            {
+                var s = new ItemCustomization();
+                s.DataContext = side;
+                s.itemName.Text = "Fried Miraak";
+                s.sizeText.Visibility = Visibility.Visible;
+                s.sizeMenu.Visibility = Visibility.Visible;
+
+                s.doneButton.Visibility = Visibility.Visible;
+                itemBorder.Child = s;
+            }
+            else if(item is AretinoAppleJuice aretino)
+            {
+                var aaj = new ItemCustomization();
+                aaj.DataContext = aretino;
+                aaj.itemName.Text = "Aretino Apple Juice";
+                aaj.sizeText.Visibility = Visibility.Visible;
+                aaj.sizeMenu.Visibility = Visibility.Visible;
+                aaj.iceBox.Visibility = Visibility.Visible;
+
+                aaj.doneButton.Visibility = Visibility.Visible;
+                itemBorder.Child = aaj;
+            }
+            else if (item is CandlehearthCoffee candlehearth)
+            {
+                var cc = new ItemCustomization();
+                cc.DataContext = candlehearth;
+                cc.itemName.Text = "Candlehearth Coffee";
+                cc.sizeText.Visibility = Visibility.Visible;
+                cc.sizeMenu.Visibility = Visibility.Visible;
+                cc.iceBox.Visibility = Visibility.Visible;
+
+                cc.doneButton.Visibility = Visibility.Visible;
+                itemBorder.Child = cc;
+            }
+            else if(item is MarkarthMilk markarth)
+            {
+                var mm = new ItemCustomization();
+                mm.DataContext = markarth;
+                mm.itemName.Text = "Markarth Milk";
+                mm.sizeText.Visibility = Visibility.Visible;
+                mm.sizeMenu.Visibility = Visibility.Visible;
+                mm.iceBox.Visibility = Visibility.Visible;
+
+                mm.doneButton.Visibility = Visibility.Visible;
+                itemBorder.Child = mm;
+            }
+            else if(item is SailorSoda sailor)
+            {
+                var ss = new ItemCustomization();
+                ss.DataContext = sailor;
+                ss.itemName.Text = "Sailor Soda";
+                ss.sizeText.Visibility = Visibility.Visible;
+                ss.sizeMenu.Visibility = Visibility.Visible;
+                ss.flavorText.Visibility = Visibility.Visible;
+                ss.flavorMenu.Visibility = Visibility.Visible;
+                ss.iceBox.Visibility = Visibility.Visible;
+
+                ss.doneButton.Visibility = Visibility.Visible;
+                itemBorder.Child = ss;
+            }
+            else if(item is WarriorWater warrior)
+            {
+                var ww = new ItemCustomization();
+                ww.DataContext = warrior;
+                ww.itemName.Text = "Warrior Water";
+                ww.sizeText.Visibility = Visibility.Visible;
+                ww.sizeMenu.Visibility = Visibility.Visible;
+                ww.iceBox.Visibility = Visibility.Visible;
+                ww.lemonBox.Visibility = Visibility.Visible;
+
+                ww.doneButton.Visibility = Visibility.Visible;
+                itemBorder.Child = ww;
+            }
+            return item;
         }
     }
 }
