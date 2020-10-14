@@ -11,15 +11,11 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class WarriorWater : Drink, IOrderItem, INotifyPropertyChanged
+    public class WarriorWater : Drink
     {
         private bool ice = true;
         private bool lemon = false;
 
-        /// <summary>
-        /// Event handler for a property changed event.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
 
         private Size size = Size.Small;
         /// <summary>
@@ -31,11 +27,11 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+                OnPropertyChanged("Size");
+                OnPropertyChanged("Price");
+                OnPropertyChanged("Calories");
+                OnPropertyChanged("SpecialInstructions");
+                OnPropertyChanged("Name");
             }
         }
 
@@ -48,8 +44,8 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 ice = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged("Ice");
+                OnPropertyChanged("SpecialInstructions");
             }
         }
 
@@ -62,8 +58,8 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 lemon = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged("Lemon");
+                OnPropertyChanged("SpecialInstructions");
             }
         }
 

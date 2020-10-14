@@ -21,6 +21,12 @@ namespace BleakwindBuffet.Data.Drinks
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+
+        protected void OnPropertyChanged(string str)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(str));
+        }
+
         /// <summary>
         /// gets the price of the drink
         /// </summary>

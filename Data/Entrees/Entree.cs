@@ -20,6 +20,11 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        protected void OnPropertyChanged(string str)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(str));
+        }
+
         /// <summary>
         /// gets the price of the entree
         /// </summary>

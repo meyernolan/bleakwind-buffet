@@ -11,15 +11,11 @@ using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class SailorSoda : Drink, IOrderItem, INotifyPropertyChanged
+    public class SailorSoda : Drink
     {
         private bool ice = true;
         private SodaFlavor flavor = SodaFlavor.Cherry;
 
-        /// <summary>
-        /// Event handler for a property changed event.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
 
         private Size size = Size.Small;
         /// <summary>
@@ -31,11 +27,11 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+                OnPropertyChanged("Size");
+                OnPropertyChanged("Price");
+                OnPropertyChanged("Calories");
+                OnPropertyChanged("SpecialInstructions");
+                OnPropertyChanged("Name");
             }
         }
 
@@ -48,8 +44,8 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 ice = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged("Ice");
+                OnPropertyChanged("SpecialInstructions");
             }
         }
 
@@ -62,9 +58,9 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 flavor = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Flavor"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+                OnPropertyChanged("Flavor");
+                OnPropertyChanged("SpecialInstructions");
+                OnPropertyChanged("Name");
             }
         }
 

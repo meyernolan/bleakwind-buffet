@@ -10,12 +10,8 @@ using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class BriarheartBurger : Entree, IOrderItem, INotifyPropertyChanged
+    public class BriarheartBurger : Entree
     {
-        /// <summary>
-        /// Event handler for a property changed event.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Gets the price of the burger
@@ -41,8 +37,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 ketchup = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged("Ketchup");
+                OnPropertyChanged("SpecialInstructions");
             }
         }
 
@@ -56,8 +52,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 bun = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged("Bun");
+                OnPropertyChanged("SpecialInstructions");
             }
         }
 
@@ -71,8 +67,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 mustard = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged("Mustard");
+                OnPropertyChanged("SpecialInstructions");
             }
         }
 
@@ -86,8 +82,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 pickle = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged("Pickle");
+                OnPropertyChanged("SpecialInstructions");
             }
         }
 
@@ -101,8 +97,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 cheese = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged("Cheese");
+                OnPropertyChanged("SpecialInstructions");
             }
         }
 

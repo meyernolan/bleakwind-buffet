@@ -25,7 +25,6 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderComponent : UserControl
     {
-        //IOrderItem selectedItem = null;
 
         /// <summary>
         /// Initializes the order component
@@ -34,8 +33,6 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
-
-
 
         /// <summary>
         /// Event that fires when the remove button is clicked.
@@ -57,14 +54,9 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnSelectionChanged(object sender, RoutedEventArgs e)
         {
-            /*if (orderedItems.selectedItem is Order order)
-            {
-                
-            }*/
             if (orderedItems.SelectedItem is IOrderItem item)
             {
                 item = menuSelectionComponent.editItem(item);
-                //selectedItem = item;
             }
         }
     }

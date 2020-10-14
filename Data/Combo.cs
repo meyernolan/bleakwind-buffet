@@ -34,9 +34,6 @@ namespace BleakwindBuffet.Data
             Entree = entree;
             Side = side;
             Drink = drink;
-            /*PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));*/
         }
 
 
@@ -57,8 +54,13 @@ namespace BleakwindBuffet.Data
             get => entree;
             set
             {
+                if (entree != null)
+                {
+                    entree.PropertyChanged -= ItemChangedListener;
+                }
                 entree = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Entree"));
+                entree.PropertyChanged += ItemChangedListener;
+                //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Entree"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
@@ -75,8 +77,13 @@ namespace BleakwindBuffet.Data
             get => side;
             set
             {
+                if (side != null)
+                {
+                    side.PropertyChanged -= ItemChangedListener;
+                }
                 side = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Side"));
+                side.PropertyChanged += ItemChangedListener;
+                //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Side"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
@@ -93,10 +100,36 @@ namespace BleakwindBuffet.Data
             get => drink;
             set
             {
+                if(drink != null)
+                {
+                    drink.PropertyChanged -= ItemChangedListener;
+                }
                 drink = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Drink"));
+                drink.PropertyChanged += ItemChangedListener;
+                //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Drink"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
+
+        /// <summary>
+        /// Listener for when an item in the collection is changed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void ItemChangedListener(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "Price")
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+            }
+            else if (e.PropertyName == "Calories")
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
+            else if (e.PropertyName == "SpecialInstructions")
+            {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }

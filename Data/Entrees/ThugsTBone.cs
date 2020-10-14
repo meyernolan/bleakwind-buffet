@@ -8,13 +8,8 @@ using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class ThugsTBone : Entree, IOrderItem, INotifyPropertyChanged
-    {
-        /// <summary>
-        /// Event handler for a property changed event.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
+    public class ThugsTBone : Entree
+    { 
         /// <summary>
         /// gets the price of the steak
         /// </summary>

@@ -10,12 +10,8 @@ using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class GardenOrcOmelette : Entree, IOrderItem, INotifyPropertyChanged
-    {
-        /// <summary>
-        /// Event handler for a property changed event.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+    public class GardenOrcOmelette : Entree
+    { 
 
         private bool broccoli = true;
         private bool mushrooms = true;
@@ -40,8 +36,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 broccoli = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Broccoli"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged("Broccoli");
+                OnPropertyChanged("SpecialInstructions");
             }
         }
 
@@ -54,8 +50,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 tomato = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged("Tomato");
+                OnPropertyChanged("SpecialInstructions");
             }
         }
 
@@ -68,8 +64,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 cheddar = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheddar"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged("Cheddar");
+                OnPropertyChanged("SpecialInstructions");
             }
         }
 
@@ -82,8 +78,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 mushrooms = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mushrooms"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged("Mushrooms");
+                OnPropertyChanged("SpecialInstructions");
             }
         }
 

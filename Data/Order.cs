@@ -32,62 +32,6 @@ namespace BleakwindBuffet.Data
             CollectionChanged += CollectionChangedListener;
         }
 
-        /*
-        public bool IsReadOnly =>  false;
-
-
-        public void CopyTo(IOrderItem[] arr, int index)
-        {
-            orderItems.CopyTo(arr, index);
-        }
-
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return orderItems.GetEnumerator();
-        }
-
-
-        protected void OnPropertyChanged(string name)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-
-
-        public bool Contains(IOrderItem item)
-        {
-            return orderItems.Contains(item);
-        }
-
-
-        public IEnumerator<IOrderItem> GetEnumerator()
-        {
-            return orderItems.GetEnumerator();
-        }
-
-
-        public int Count => orderItems.Count;
-
-
-        public void Clear()
-        {
-            foreach(IOrderItem item in orderItems)
-            {
-                orderItems.Remove(item);
-            }
-            orderItems.Clear();
-        }
-
-
-        private List<IOrderItem> orderItems = new List<IOrderItem>();
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-
-        public event NotifyCollectionChangedEventHandler CollectionChanged;
-
-        */
 
         /// <summary>
         /// Holds the value for the next order number.
@@ -138,16 +82,17 @@ namespace BleakwindBuffet.Data
         /// <param name="e"></param>
         void CollectionItemChangedListener(object sender, PropertyChangedEventArgs e)
         {
-            if(e.PropertyName == "Price")
+            if (e.PropertyName == "Price")
             {
                 OnPropertyChanged(new PropertyChangedEventArgs("Total"));
                 OnPropertyChanged(new PropertyChangedEventArgs("Subtotal"));
                 OnPropertyChanged(new PropertyChangedEventArgs("Tax"));
             }
-            else if(e.PropertyName == "Calories")
+            else if (e.PropertyName == "Calories")
             {
                 OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
             }
+            //else if (e.PropertyName == "SpecialInstructions") OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
         }
 
         /// <summary>

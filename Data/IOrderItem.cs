@@ -16,11 +16,6 @@ namespace BleakwindBuffet.Data
     public interface IOrderItem : INotifyPropertyChanged
     {
         /// <summary>
-        /// Event handler for a property changed event.
-        /// </summary>
-        event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
         /// property for getting the price of an item
         /// </summary>
         double Price { get; }

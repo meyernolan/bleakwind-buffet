@@ -63,6 +63,8 @@ namespace PointOfSale
             pancakesBox.Visibility = Visibility.Collapsed;
             iceBox.Visibility = Visibility.Collapsed;
             lemonBox.Visibility = Visibility.Collapsed;
+            creamBox.Visibility = Visibility.Collapsed;
+            decafBox.Visibility = Visibility.Collapsed;
             sizeText.Visibility = Visibility.Collapsed;
             sizeMenu.Visibility = Visibility.Collapsed;
             flavorMenu.Visibility = Visibility.Collapsed;

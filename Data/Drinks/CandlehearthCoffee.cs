@@ -11,16 +11,12 @@ using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class CandlehearthCoffee : Drink, IOrderItem, INotifyPropertyChanged
+    public class CandlehearthCoffee : Drink
     {
         private bool ice = false;
         private bool decaf = false;
         private bool roomForCream = false;
 
-        /// <summary>
-        /// Event handler for a property changed event.
-        /// </summary>
-        public new event PropertyChangedEventHandler PropertyChanged;
 
         private Size size = Size.Small;
         /// <summary>
@@ -32,11 +28,11 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+                OnPropertyChanged("Size");
+                OnPropertyChanged("Price");
+                OnPropertyChanged("Calories");
+                OnPropertyChanged("SpecialInstructions");
+                OnPropertyChanged("Name");
             }
         }
 
@@ -49,8 +45,8 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 ice = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged("Ice");
+                OnPropertyChanged("SpecialInstructions");
             }
         }
 
@@ -60,7 +56,13 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Decaf
         {
             get => decaf;
-            set => decaf = value;
+            set
+            {
+                decaf = value;
+                OnPropertyChanged("Decaf");
+                OnPropertyChanged("SpecialInstructions");
+                OnPropertyChanged("Name");
+            }
         }
 
         /// <summary>
@@ -69,7 +71,12 @@ namespace BleakwindBuffet.Data.Drinks
         public bool RoomForCream
         {
             get => roomForCream;
-            set => roomForCream = value;
+            set
+            {
+                roomForCream = value;
+                OnPropertyChanged("RoomForCream");
+                OnPropertyChanged("SpecialInstructions");
+            }
         }
 
         /// <summary>

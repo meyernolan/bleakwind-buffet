@@ -8,12 +8,8 @@ using System.Collections.Generic;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class PhillyPoacher : Entree, IOrderItem, INotifyPropertyChanged
-    {
-        /// <summary>
-        /// Event handler for a property changed event.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+    public class PhillyPoacher : Entree
+    { 
 
         private bool sirloin = true;
         private bool onion = true;
@@ -28,8 +24,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 sirloin = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sirloin"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged("Sirloin");
+                OnPropertyChanged("SpecialInstructions");
             }
         }
 
@@ -42,8 +38,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 onion = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Onion"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged("Onion");
+                OnPropertyChanged("SpecialInstructions");
             }
         }
 
@@ -56,8 +52,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 roll = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Roll"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                OnPropertyChanged("Roll");
+                OnPropertyChanged("SpecialInstructions");
             }
         }
 

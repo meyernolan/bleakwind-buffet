@@ -349,6 +349,8 @@ namespace PointOfSale
             cc.sizeText.Visibility = Visibility.Visible;
             cc.sizeMenu.Visibility = Visibility.Visible;
             cc.iceBox.Visibility = Visibility.Visible;
+            cc.creamBox.Visibility = Visibility.Visible;
+            cc.decafBox.Visibility = Visibility.Visible;
 
             cc.doneButton.Visibility = Visibility.Visible;
             itemBorder.Child = cc;
@@ -437,16 +439,18 @@ namespace PointOfSale
         public void DoneWithOrderClick(object sender, RoutedEventArgs e)
         {
             MainWindow parentWindow = (MainWindow)MainWindow.GetWindow(this);
+            itemBorder.Child = new PaymentOptions();
             /*if(parentWindow.DataContext is Order order)
             {
                 order.Clear();
             }*/
-            parentWindow.DataContext = new Order();
+            //parentWindow.DataContext = new Order();
         }
 
 
         public void CancelOrderClick(object sender, RoutedEventArgs e)
         {
+
             MainWindow parentWindow = (MainWindow)MainWindow.GetWindow(this);
             /*if(parentWindow.DataContext is Order order)
             {
@@ -463,7 +467,15 @@ namespace PointOfSale
         /// <returns>the item</returns>
         public IOrderItem editItem(IOrderItem item)
         {
-            if(item is BriarheartBurger briarheart)
+            if(item is Combo combo)
+            {
+                var comboVar = new ComboCustomization();
+                editComboEntree(combo.Entree, comboVar);
+                editComboSide(combo.Side, comboVar);
+                editComboDrink(combo.Drink, comboVar);
+                itemBorder.Child = comboVar;
+            }
+            else if(item is BriarheartBurger briarheart)
             {
                 var bb = new ItemCustomization();
                 bb.DataContext = briarheart;
@@ -564,7 +576,7 @@ namespace PointOfSale
             {
                 var s = new ItemCustomization();
                 s.DataContext = side;
-                s.itemName.Text = "Fried Miraak";
+                s.itemName.Text = side.Name;
                 s.sizeText.Visibility = Visibility.Visible;
                 s.sizeMenu.Visibility = Visibility.Visible;
 
@@ -591,6 +603,8 @@ namespace PointOfSale
                 cc.sizeText.Visibility = Visibility.Visible;
                 cc.sizeMenu.Visibility = Visibility.Visible;
                 cc.iceBox.Visibility = Visibility.Visible;
+                cc.creamBox.Visibility = Visibility.Visible;
+                cc.decafBox.Visibility = Visibility.Visible;
 
                 cc.doneButton.Visibility = Visibility.Visible;
                 itemBorder.Child = cc;
@@ -635,6 +649,154 @@ namespace PointOfSale
                 itemBorder.Child = ww;
             }
             return item;
+        }
+
+
+        public void editComboEntree(IOrderItem item, ComboCustomization custom)
+        {
+            if (item is BriarheartBurger briarheart)
+            {
+                custom.itemEntreeName.Text = "Briarheart Burger";
+                custom.bunEntreeBox.Visibility = Visibility.Visible;
+                custom.ketchupEntreeBox.Visibility = Visibility.Visible;
+                custom.mustardEntreeBox.Visibility = Visibility.Visible;
+                custom.pickleEntreeBox.Visibility = Visibility.Visible;
+                custom.cheeseEntreeBox.Visibility = Visibility.Visible;
+
+                custom.doneButton.Visibility = Visibility.Visible;
+            }
+            else if (item is DoubleDraugr doubleD)
+            {
+                custom.itemEntreeName.Text = "Double Draugr";
+                custom.ketchupEntreeBox.Visibility = Visibility.Visible;
+                custom.mustardEntreeBox.Visibility = Visibility.Visible;
+                custom.pickleEntreeBox.Visibility = Visibility.Visible;
+                custom.cheeseEntreeBox.Visibility = Visibility.Visible;
+                custom.tomatoEntreeBox.Visibility = Visibility.Visible;
+                custom.lettuceEntreeBox.Visibility = Visibility.Visible;
+                custom.mayoEntreeBox.Visibility = Visibility.Visible;
+
+                custom.doneButton.Visibility = Visibility.Visible;
+            }
+            else if (item is ThalmorTriple thalmor)
+            {
+                custom.itemEntreeName.Text = "Thalmor Triple";
+                custom.bunEntreeBox.Visibility = Visibility.Visible;
+                custom.ketchupEntreeBox.Visibility = Visibility.Visible;
+                custom.mustardEntreeBox.Visibility = Visibility.Visible;
+                custom.pickleEntreeBox.Visibility = Visibility.Visible;
+                custom.cheeseEntreeBox.Visibility = Visibility.Visible;
+                custom.tomatoEntreeBox.Visibility = Visibility.Visible;
+                custom.lettuceEntreeBox.Visibility = Visibility.Visible;
+                custom.mayoEntreeBox.Visibility = Visibility.Visible;
+                custom.baconEntreeBox.Visibility = Visibility.Visible;
+                custom.eggEntreeBox.Visibility = Visibility.Visible;
+
+                custom.doneButton.Visibility = Visibility.Visible;
+            }
+            else if (item is GardenOrcOmelette garden)
+            {
+                custom.itemEntreeName.Text = "Garden Orc Omelette";
+                custom.broccoliEntreeBox.Visibility = Visibility.Visible;
+                custom.mushroomEntreeBox.Visibility = Visibility.Visible;
+                custom.cheddarEntreeBox.Visibility = Visibility.Visible;
+                custom.tomatoEntreeBox.Visibility = Visibility.Visible;
+
+                custom.doneButton.Visibility = Visibility.Visible;
+            }
+            else if (item is SmokehouseSkeleton smokehouse)
+            {
+                custom.itemEntreeName.Text = "Smokehouse Skeleton";
+                custom.eggEntreeBox.Visibility = Visibility.Visible;
+                custom.hashBrownsEntreeBox.Visibility = Visibility.Visible;
+                custom.pancakesEntreeBox.Visibility = Visibility.Visible;
+                custom.sausageEntreeBox.Visibility = Visibility.Visible;
+
+                custom.doneButton.Visibility = Visibility.Visible;
+            }
+            else if (item is PhillyPoacher philly)
+            {
+                custom.itemEntreeName.Text = "Philly Poacher";
+                custom.sirloinEntreeBox.Visibility = Visibility.Visible;
+                custom.onionEntreeBox.Visibility = Visibility.Visible;
+                custom.rollEntreeBox.Visibility = Visibility.Visible;
+
+                custom.doneButton.Visibility = Visibility.Visible;
+            }
+            else if (item is ThugsTBone thugs)
+            {
+                custom.itemEntreeName.Text = "Thugs T-Bone";
+
+                custom.doneButton.Visibility = Visibility.Visible;
+            }
+        }
+
+
+        public void editComboSide(IOrderItem item, ComboCustomization custom)
+        {
+            if (item is Side side)
+            {
+                custom.itemSideName.Text = side.Name;
+                custom.sizeSideText.Visibility = Visibility.Visible;
+                custom.sizeSideMenu.Visibility = Visibility.Visible;
+
+                custom.doneButton.Visibility = Visibility.Visible;
+            }
+        }
+
+
+        public void editComboDrink(IOrderItem item, ComboCustomization custom)
+        {
+            if (item is AretinoAppleJuice aretino)
+            {
+                custom.itemDrinkName.Text = "Aretino Apple Juice";
+                custom.sizeDrinkText.Visibility = Visibility.Visible;
+                custom.sizeDrinkMenu.Visibility = Visibility.Visible;
+                custom.iceDrinkBox.Visibility = Visibility.Visible;
+
+                custom.doneButton.Visibility = Visibility.Visible;
+            }
+            else if (item is CandlehearthCoffee candlehearth)
+            {
+                custom.itemDrinkName.Text = "Candlehearth Coffee";
+                custom.sizeDrinkText.Visibility = Visibility.Visible;
+                custom.sizeDrinkMenu.Visibility = Visibility.Visible;
+                custom.iceDrinkBox.Visibility = Visibility.Visible;
+                custom.creamDrinkBox.Visibility = Visibility.Visible;
+                custom.decafDrinkBox.Visibility = Visibility.Visible;
+
+                custom.doneButton.Visibility = Visibility.Visible;
+            }
+            else if (item is MarkarthMilk markarth)
+            {
+                custom.itemDrinkName.Text = "Markarth Milk";
+                custom.sizeDrinkText.Visibility = Visibility.Visible;
+                custom.sizeDrinkMenu.Visibility = Visibility.Visible;
+                custom.iceDrinkBox.Visibility = Visibility.Visible;
+
+                custom.doneButton.Visibility = Visibility.Visible;
+            }
+            else if (item is SailorSoda sailor)
+            {
+                custom.itemDrinkName.Text = "Sailor Soda";
+                custom.sizeDrinkText.Visibility = Visibility.Visible;
+                custom.sizeDrinkMenu.Visibility = Visibility.Visible;
+                custom.flavorDrinkText.Visibility = Visibility.Visible;
+                custom.flavorDrinkMenu.Visibility = Visibility.Visible;
+                custom.iceDrinkBox.Visibility = Visibility.Visible;
+
+                custom.doneButton.Visibility = Visibility.Visible;
+            }
+            else if (item is WarriorWater warrior)
+            {
+                custom.itemDrinkName.Text = "Warrior Water";
+                custom.sizeDrinkText.Visibility = Visibility.Visible;
+                custom.sizeDrinkMenu.Visibility = Visibility.Visible;
+                custom.iceDrinkBox.Visibility = Visibility.Visible;
+                custom.lemonDrinkBox.Visibility = Visibility.Visible;
+
+                custom.doneButton.Visibility = Visibility.Visible;
+            }
         }
     }
 }

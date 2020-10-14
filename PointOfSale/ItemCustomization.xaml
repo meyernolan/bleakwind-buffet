@@ -123,6 +123,16 @@
                     <ScaleTransform ScaleX="3" ScaleY="3" />
                 </CheckBox.LayoutTransform>
             </CheckBox>
+            <CheckBox Name="creamBox" Content="Cream" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="{Binding Path=RoomForCream}">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="3" ScaleY="3" />
+                </CheckBox.LayoutTransform>
+            </CheckBox>
+            <CheckBox Name="decafBox" Content="Decaf" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="{Binding Path=Decaf}">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="3" ScaleY="3" />
+                </CheckBox.LayoutTransform>
+            </CheckBox>
             <CheckBox Name="pancakesBox" Content="Pancakes" Visibility="Collapsed" HorizontalAlignment="Left"  VerticalAlignment="Top" IsChecked="{Binding Path=Pancake}">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="3" ScaleY="3" />
