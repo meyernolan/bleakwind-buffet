@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Nolan Meyer
+ * Class name: ChangeQuantity.xaml.cs
+ * Purpose: Class used to create a custom ChangeQuantity control.
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,53 +23,27 @@ namespace PointOfSale
     /// </summary>
     public partial class ChangeQuantity : UserControl
     {
+        /// <summary>
+        /// Dependency Property for the Change property
+        /// </summary>
+        public static DependencyProperty ChangeProperty = DependencyProperty.Register("Change", typeof(int), typeof(ChangeQuantity));
 
-        public static DependencyProperty ValueProperty = DependencyProperty.Register("Value", typeof(int), typeof(ChangeQuantity),
-            new FrameworkPropertyMetadata(0, FrameworkPropertyMetadataOptions.AffectsRender | FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, HandleValueChanged));
-
-
-        public int Value
+        /// <summary>
+        /// Property for the amount of change. The value in the text box.
+        /// </summary>
+        public int Change
         {
-            get { return (int)GetValue(ValueProperty); }
-            set { SetValue(ValueProperty, value); }
+            get { return (int)GetValue(ChangeProperty); }
+            set { SetValue(ChangeProperty, value); }
         }
 
-
-        public static readonly RoutedEvent ValueClampedEvent = EventManager.RegisterRoutedEvent("ValueClamped", 
-            RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(ChangeQuantity));
-
-
-        public event RoutedEventHandler ValueClamped
-        {
-            add { AddHandler(ValueClampedEvent, value); }
-            remove { RemoveHandler(ValueClampedEvent, value); }
-        }
-
-
-        public int MinValue => 0;
-
-
+        /// <summary>
+        /// Initializes ChangeQuantity
+        /// </summary>
         public ChangeQuantity()
         {
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Callback for the ValueProperty, which clamps the Value to the range 
-        /// defined by MinValue and MaxValue
-        /// </summary>
-        /// <param name="sender">The NumberBox whose value is changing</param>
-        /// <param name="e">The event args</param>
-        static void HandleValueChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (e.Property.Name == "Value" && sender is ChangeQuantity customer)
-            {
-                if (customer.Value < customer.MinValue)
-                {
-                    customer.Value = customer.MinValue;
-                    customer.RaiseEvent(new RoutedEventArgs(ValueClampedEvent));
-                }
-            }
-        }
     }
 }

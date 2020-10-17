@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Nolan Meyer
+ * Class name: CurrencyLabel.xaml.cs
+ * Purpose: Class used to create a CurrencyLabel Label
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,18 +23,24 @@ namespace PointOfSale
     /// </summary>
     public partial class CurrencyLabel : UserControl
     {
-
+        /// <summary>
+        /// Dependency Property for the Value property
+        /// </summary>
         public static DependencyProperty ValueProperty = DependencyProperty.Register("Value", typeof(int), typeof(CurrencyLabel),
             new FrameworkPropertyMetadata(0, FrameworkPropertyMetadataOptions.AffectsRender));
 
-
+        /// <summary>
+        /// The value of the currency. The number of the bill the Label represents.
+        /// </summary>
         public int Value
         {
             get { return (int)GetValue(ValueProperty); }
             set { SetValue(ValueProperty, value); }
         }
 
-
+        /// <summary>
+        /// Initializes a CurrencyLabel
+        /// </summary>
         public CurrencyLabel()
         {
             InitializeComponent();

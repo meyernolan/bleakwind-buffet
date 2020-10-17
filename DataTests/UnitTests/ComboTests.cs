@@ -33,6 +33,28 @@ namespace BleakwindBuffet.DataTests.UnitTests
             });
         }
 
+
+        [Fact]
+        public void NamePropertyReturnsComboAsString()
+        {
+            BriarheartBurger bb = new BriarheartBurger();
+            CandlehearthCoffee cc = new CandlehearthCoffee();
+            FriedMiraak fm = new FriedMiraak();
+            Combo order = new Combo(bb, fm, cc);
+            Assert.Equal("Combo", order.Name);
+        }
+
+        [Fact]
+        public void ToStringReturnsComboAsString()
+        {
+            BriarheartBurger bb = new BriarheartBurger();
+            CandlehearthCoffee cc = new CandlehearthCoffee();
+            FriedMiraak fm = new FriedMiraak();
+            Combo order = new Combo(bb, fm, cc);
+            Assert.Equal("Combo", order.ToString());
+        }
+
+
         [Fact]
         public void ShouldBeAbleToSetDrinkEntreeAndSide()
         {

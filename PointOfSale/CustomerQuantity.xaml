@@ -6,14 +6,14 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              Height="60" Width="180">
-    <Grid Button.Click="HandleButtonClick">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition />
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Grid.Column="0" FontSize="40" Name="incrementButton">+</Button>
-        <Label BorderThickness="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Content="{Binding Path=Value, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:CustomerQuantity}}"/>
-        <Button Grid.Column="2" FontSize="40" Name="decrementButton">-</Button>
+        <Button Grid.Column="0" FontSize="40" Name="incrementButton" Click="IncrementButtonClick">+</Button>
+        <Label BorderThickness="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Content="{Binding Path=Quantity, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:CustomerQuantity}}"/>
+        <Button Grid.Column="2" FontSize="40" Name="decrementButton" Click="DecrementButtonClick">-</Button>
     </Grid>
 </UserControl>

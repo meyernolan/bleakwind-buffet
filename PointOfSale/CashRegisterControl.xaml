@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
-             mc:Ignorable="d" Height="600" d:DesignWidth="800">
+             mc:Ignorable="d" 
+        Height="600" Width="650">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -18,40 +19,82 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="70"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="From Customer" HorizontalAlignment="Center" LineStackingStrategy="BlockLineHeight" 
+        <TextBlock  Grid.ColumnSpan="3" Text="From" HorizontalAlignment="Center" LineStackingStrategy="BlockLineHeight" 
+                   VerticalAlignment="Center" FontSize="20" FontWeight="bold"/>
+        <TextBlock  Grid.ColumnSpan="3" Text="Customer" HorizontalAlignment="Center" LineStackingStrategy="BlockLineHeight" 
                    VerticalAlignment="Bottom" FontSize="20" FontWeight="bold"/>
-        <TextBlock Text="Give As" HorizontalAlignment="Right" LineStackingStrategy="BlockLineHeight" 
+        <TextBlock Grid.ColumnSpan="3" Text="Give As" HorizontalAlignment="Right" LineStackingStrategy="BlockLineHeight" 
                    VerticalAlignment="Center" FontSize="20" FontWeight="bold" Margin="0,0,30,0"/>
-        <TextBlock Text="Change" HorizontalAlignment="Right" LineStackingStrategy="BlockLineHeight" 
+        <TextBlock Grid.ColumnSpan="3" Text="Change" HorizontalAlignment="Right" LineStackingStrategy="BlockLineHeight" 
                    VerticalAlignment="Bottom" FontSize="20" FontWeight="bold" Margin="0,0,30,0"/>
 
-        <local:CurrencyControl Grid.Row="1" x:Name="hundredControl"/>
-        <local:CurrencyControl Grid.Row="2" x:Name="fiftyControl"/>
-        <local:CurrencyControl Grid.Row="3" x:Name="twentyControl"/>
-        <local:CurrencyControl Grid.Row="4" x:Name="tenControl"/>
-        <local:CurrencyControl Grid.Row="5" x:Name="fiveControl"/>
-        <local:CurrencyControl Grid.Row="6" x:Name="twoControl"/>
-        <local:CurrencyControl Grid.Row="7" x:Name="oneControl"/>
+        <local:CurrencyLabel Value="100" Grid.Row="1"/>
+        <local:CurrencyLabel Value="50" Grid.Row="2"/>
+        <local:CurrencyLabel Value="20" Grid.Row="3"/>
+        <local:CurrencyLabel Value="10" Grid.Row="4"/>
+        <local:CurrencyLabel Value="5" Grid.Row="5"/>
+        <local:CurrencyLabel Value="2" Grid.Row="6"/>
+        <local:CurrencyLabel Value="1" Grid.Row="7"/>
 
-        <Button Grid.Column="1" Content="Return to Order" FontSize="20" FontWeight="Bold" Click="ReturnToOrderClick"/>
-        <TextBlock Text="From Customer" HorizontalAlignment="Center" LineStackingStrategy="BlockLineHeight" Grid.Column="1" Grid.Row="1"
+        <local:CustomerQuantity Quantity="{Binding Path=CustomerHundreds, Mode=TwoWay}" Grid.Column="1" Grid.Row="1"/>
+        <local:CustomerQuantity Quantity="{Binding Path=CustomerFifties, Mode=TwoWay}" Grid.Column="1" Grid.Row="2"/>
+        <local:CustomerQuantity Quantity="{Binding Path=CustomerTwenties, Mode=TwoWay}" Grid.Column="1" Grid.Row="3"/>
+        <local:CustomerQuantity Quantity="{Binding Path=CustomerTens, Mode=TwoWay}" Grid.Column="1" Grid.Row="4"/>
+        <local:CustomerQuantity Quantity="{Binding Path=CustomerFives, Mode=TwoWay}" Grid.Column="1" Grid.Row="5"/>
+        <local:CustomerQuantity Quantity="{Binding Path=CustomerTwos, Mode=TwoWay}" Grid.Column="1" Grid.Row="6"/>
+        <local:CustomerQuantity Quantity="{Binding Path=CustomerOness, Mode=TwoWay}" Grid.Column="1" Grid.Row="7"/>
+
+        <local:ChangeQuantity Change="{Binding Path=ChangeHundreds, Mode=TwoWay}" Grid.Column="2" Grid.Row="1"/>
+        <local:ChangeQuantity Change="{Binding Path=ChangeFifties, Mode=TwoWay}" Grid.Column="2" Grid.Row="2"/>
+        <local:ChangeQuantity Change="{Binding Path=ChangeTwenties, Mode=TwoWay}" Grid.Column="2" Grid.Row="3"/>
+        <local:ChangeQuantity Change="{Binding Path=ChangeTens, Mode=TwoWay}" Grid.Column="2" Grid.Row="4"/>
+        <local:ChangeQuantity Change="{Binding Path=ChangeFives, Mode=TwoWay}" Grid.Column="2" Grid.Row="5"/>
+        <local:ChangeQuantity Change="{Binding Path=ChangeTwos, Mode=TwoWay}" Grid.Column="2" Grid.Row="6"/>
+        <local:ChangeQuantity Change="{Binding Path=ChangeOnes, Mode=TwoWay}" Grid.Column="2" Grid.Row="7"/>
+
+        <local:DollarCoinLabel Value="1" Grid.Column="3" Grid.Row="2"/>
+        <local:CentsLabel Value="50" Grid.Column="3" Grid.Row="3"/>
+        <local:CentsLabel Value="25" Grid.Column="3" Grid.Row="4"/>
+        <local:CentsLabel Value="10" Grid.Column="3" Grid.Row="5"/>
+        <local:CentsLabel Value="5" Grid.Column="3" Grid.Row="6"/>
+        <local:CentsLabel Value="1" Grid.Column="3" Grid.Row="7"/>
+
+
+        <local:CustomerQuantity Quantity="{Binding Path=CustomerDollarCoins, Mode=TwoWay}" Grid.Column="4" Grid.Row="2"/>
+        <local:CustomerQuantity Quantity="{Binding Path=CustomerFiftyCents, Mode=TwoWay}" Grid.Column="4" Grid.Row="3"/>
+        <local:CustomerQuantity Quantity="{Binding Path=CustomerQuarters, Mode=TwoWay}" Grid.Column="4" Grid.Row="4"/>
+        <local:CustomerQuantity Quantity="{Binding Path=CustomerDimes, Mode=TwoWay}" Grid.Column="4" Grid.Row="5"/>
+        <local:CustomerQuantity Quantity="{Binding Path=CustomerNickels, Mode=TwoWay}" Grid.Column="4" Grid.Row="6"/>
+        <local:CustomerQuantity Quantity="{Binding Path=CustomerPennies, Mode=TwoWay}" Grid.Column="4" Grid.Row="7"/>
+
+        <local:ChangeQuantity Change="{Binding Path=ChangeDollarCoins, Mode=TwoWay}" Grid.Column="5" Grid.Row="2"/>
+        <local:ChangeQuantity Change="{Binding Path=ChangeFityCents, Mode=TwoWay}" Grid.Column="5" Grid.Row="3"/>
+        <local:ChangeQuantity Change="{Binding Path=ChangeQuarters, Mode=TwoWay}" Grid.Column="5" Grid.Row="4"/>
+        <local:ChangeQuantity Change="{Binding Path=ChangeDimes, Mode=TwoWay}" Grid.Column="5" Grid.Row="5"/>
+        <local:ChangeQuantity Change="{Binding Path=ChangeNickels, Mode=TwoWay}" Grid.Column="5" Grid.Row="6"/>
+        <local:ChangeQuantity Change="{Binding Path=ChangePennies, Mode=TwoWay}" Grid.Column="5" Grid.Row="7"/>
+
+
+        <Button Grid.Column="3" Grid.ColumnSpan="3" Content="Return to Order" FontSize="20" FontWeight="Bold" Click="ReturnToOrderClick"/>
+        <TextBlock Grid.Column="3" Grid.ColumnSpan="3" Text="From" HorizontalAlignment="Center" LineStackingStrategy="BlockLineHeight"  Grid.Row="1"
+                   VerticalAlignment="Center" FontSize="20" FontWeight="bold"/>
+        <TextBlock Grid.Column="3" Grid.ColumnSpan="3" Text="Customer" HorizontalAlignment="Center" LineStackingStrategy="BlockLineHeight"  Grid.Row="1"
                    VerticalAlignment="Bottom" FontSize="20" FontWeight="bold"/>
-        <TextBlock Text="Give As" HorizontalAlignment="Right" LineStackingStrategy="BlockLineHeight"  Grid.Column="1" Grid.Row="1"
+        <TextBlock Grid.Column="3" Grid.ColumnSpan="3" Text="Give As" HorizontalAlignment="Right" LineStackingStrategy="BlockLineHeight"  Grid.Row="1"
                    VerticalAlignment="Center" FontSize="20" FontWeight="bold" Margin="0,0,30,0"/>
-        <TextBlock Text="Change" HorizontalAlignment="Right" LineStackingStrategy="BlockLineHeight"  Grid.Column="1" Grid.Row="1"
+        <TextBlock Grid.Column="3" Grid.ColumnSpan="3" Text="Change" HorizontalAlignment="Right" LineStackingStrategy="BlockLineHeight" Grid.Row="1"
                    VerticalAlignment="Bottom" FontSize="20" FontWeight="bold" Margin="0,0,30,0"/>
-        <local:DollarCoinControl Grid.Row="2" Grid.Column="1" x:Name="dollarCoinControl"/>
-        <local:CentsControl Grid.Row="3" Grid.Column="1" x:Name="fiftyCentsControl"/>
-        <local:CentsControl Grid.Row="4" Grid.Column="1" x:Name="QuarterControl"/>
-        <local:CentsControl Grid.Row="5" Grid.Column="1" x:Name="dimeControl"/>
-        <local:CentsControl Grid.Row="6" Grid.Column="1" x:Name="nickelontrol"/>
-        <local:CentsControl Grid.Row="7" Grid.Column="1" x:Name="pennyControl"/>
+        
 
-        <Grid Grid.Row="8" Grid.ColumnSpan="2">
+        <Grid Grid.Row="8" Grid.ColumnSpan="6">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -67,7 +110,7 @@
             <Border Grid.Column="1" BorderBrush="Green" BorderThickness="1">
                 <Grid>
                     <TextBlock Margin="10,0,0,0" Text="$" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
-                    <TextBlock Text="Bind this" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
+                    <TextBlock Text="{Binding Path=OrderTotal, StringFormat={}{0:#,0.00}}" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
                 </Grid>
             </Border>
             <TextBlock Grid.Column="2" Text="Amount" HorizontalAlignment="Center" Margin="0,7,0,0" VerticalAlignment="Top" FontSize="20"/>
@@ -75,7 +118,7 @@
             <Border Grid.Column="3" Background="Red">
                 <Grid>
                     <TextBlock Margin="10,0,0,0" Text="$" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
-                    <TextBlock Text="Bind this" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
+                    <TextBlock Text="{Binding Path=AmountDue, StringFormat={}{0:#,0.00}}" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
                 </Grid>
             </Border>
             <TextBlock Grid.Column="4" Text="Change" HorizontalAlignment="Center" Margin="0,7,0,0" VerticalAlignment="Top" FontSize="20"/>
@@ -83,10 +126,12 @@
             <Border Grid.Column="5" Background="Green" >
                 <Grid>
                     <TextBlock Margin="10,0,0,0" Text="$" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
-                    <TextBlock Text="Bind this" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
+                    <TextBlock Text="{Binding Path=ChangeTotal, StringFormat={}{0:#,0.00}}" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
                 </Grid>
             </Border>
-            <Button Grid.Column="6" x:Name="finalizeButton" Click="FinalizeSaleClick" FontSize="18" Content="Finalize Sale" FontWeight="Bold"/>
+            <Button Grid.Column="6" x:Name="finalizeButton" Click="FinalizeSaleClick" FontSize="18" FontWeight="Bold">
+                <TextBlock TextAlignment="Center">Finalize<LineBreak/>Sale</TextBlock>
+            </Button>
         </Grid>
 
     </Grid>

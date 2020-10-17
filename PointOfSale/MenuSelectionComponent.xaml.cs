@@ -438,13 +438,7 @@ namespace PointOfSale
 
         public void DoneWithOrderClick(object sender, RoutedEventArgs e)
         {
-            MainWindow parentWindow = (MainWindow)MainWindow.GetWindow(this);
             itemBorder.Child = new PaymentOptions();
-            /*if(parentWindow.DataContext is Order order)
-            {
-                order.Clear();
-            }*/
-            //parentWindow.DataContext = new Order();
         }
 
 
@@ -452,10 +446,6 @@ namespace PointOfSale
         {
 
             MainWindow parentWindow = (MainWindow)MainWindow.GetWindow(this);
-            /*if(parentWindow.DataContext is Order order)
-            {
-                order.Clear();
-            }*/
             parentWindow.DataContext = new Order();
         }
 

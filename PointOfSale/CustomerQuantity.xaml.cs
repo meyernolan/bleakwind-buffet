@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Nolan Meyer
+ * Class name: CustomerQuantity.xaml.cs
+ * Purpose: Class used to create a new CustomerQuantity Control
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,84 +23,48 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomerQuantity : UserControl
     {
-        public static DependencyProperty StepProperty = DependencyProperty.Register("Step", typeof(int), typeof(CustomerQuantity));
+        /// <summary>
+        /// Dependency Property for the Quantity property
+        /// </summary>
+        public static DependencyProperty QuantityProperty = DependencyProperty.Register("Quantity", typeof(int), typeof(CustomerQuantity));
 
-
-        public int Step
+        /// <summary>
+        /// Repersents the number of currency the customer is giving.
+        /// </summary>
+        public int Quantity
         {
-            get { return (int)GetValue(StepProperty); }
-            set { SetValue(StepProperty, value); }
+            get { return (int)GetValue(QuantityProperty); }
+            set { SetValue(QuantityProperty, value); }
         }
 
 
-        public int Value
-        {
-            get { return (int)GetValue(ValueProperty); }
-            set { SetValue(ValueProperty, value); }
-        }
-
-
-        public int MinValue => 0;
-
-
-        public static readonly RoutedEvent ValueClampedEvent = EventManager.RegisterRoutedEvent("ValueClamped",
-            RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(CustomerQuantity));
-
-
-        public event RoutedEventHandler ValueClamped
-        {
-            add { AddHandler(ValueClampedEvent, value); }
-            remove { RemoveHandler(ValueClampedEvent, value); }
-        }
-
-
+        /// <summary>
+        /// Iniitializes a CustomerQuantity
+        /// </summary>
         public CustomerQuantity()
         {
             InitializeComponent();
         }
 
+        
         /// <summary>
-        /// Handles the click of the increment or decrement button
+        /// Handles the click of the increment button
         /// </summary>
         /// <param name="sender">The button clicked</param>
         /// <param name="e">The event arguments</param>
-        void HandleButtonClick(object sender, RoutedEventArgs e)
+        void IncrementButtonClick(object sender, RoutedEventArgs e)
         {
-            if (sender is Button button)
-            {
-                switch (button.Name)
-                {
-                    case "Increment":
-                        Value += Step;
-                        break;
-                    case "Decrement":
-                        Value -= Step;
-                        break;
-                }
-            }
-            e.Handled = true;
+            Quantity++;
         }
 
-
-        public static DependencyProperty ValueProperty = DependencyProperty.Register("Value", typeof(int), typeof(CustomerQuantity),
-            new FrameworkPropertyMetadata(0, FrameworkPropertyMetadataOptions.AffectsRender | FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, HandleValueChanged));
-
         /// <summary>
-        /// Callback for the ValueProperty, which clamps the Value to the range 
-        /// defined by MinValue and MaxValue
+        /// Handles the click of the decrement button
         /// </summary>
-        /// <param name="sender">The NumberBox whose value is changing</param>
-        /// <param name="e">The event args</param>
-        static void HandleValueChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        /// <param name="sender">The button clicked</param>
+        /// <param name="e">The event arguments</param>
+        void DecrementButtonClick(object sender, RoutedEventArgs e)
         {
-            if (e.Property.Name == "Value" && sender is CustomerQuantity customer)
-            {
-                if (customer.Value < customer.MinValue)
-                {
-                    customer.Value = customer.MinValue;
-                    customer.RaiseEvent(new RoutedEventArgs(ValueClampedEvent));
-                }
-            }
+            Quantity--;
         }
     }
 }

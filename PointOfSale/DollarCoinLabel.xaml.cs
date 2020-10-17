@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Nolan Meyer
+ * Class name: DollarCoinLabel.xaml.cs
+ * Purpose: Class used to create a DollarCoinLabel
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,18 +23,24 @@ namespace PointOfSale
     /// </summary>
     public partial class DollarCoinLabel : UserControl
     {
-
+        /// <summary>
+        /// Dependency Property for the Value property
+        /// </summary>
         public static DependencyProperty ValueProperty = DependencyProperty.Register("Value", typeof(int), typeof(DollarCoinLabel),
             new FrameworkPropertyMetadata(0, FrameworkPropertyMetadataOptions.AffectsRender));
 
-
+        /// <summary>
+        /// The value of the label, represents a dollar coin value.
+        /// </summary>
         public int Value
         {
             get { return (int)GetValue(ValueProperty); }
             set { SetValue(ValueProperty, value); }
         }
 
-
+        /// <summary>
+        /// Initializes a DollarCoinLabel
+        /// </summary>
         public DollarCoinLabel()
         {
             InitializeComponent();
