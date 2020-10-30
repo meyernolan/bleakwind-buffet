@@ -29,5 +29,10 @@ namespace BleakwindBuffet.Data
         /// gets the special instructions of an item
         /// </summary>
         List<string> SpecialInstructions { get; }
+
+        /// <summary>
+        /// Returns the name of the IOrderItem
+        /// </summary>
+        string Name { get; }
     }
 }

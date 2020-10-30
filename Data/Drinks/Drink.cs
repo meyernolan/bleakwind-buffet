@@ -28,6 +28,11 @@ namespace BleakwindBuffet.Data.Drinks
         }
 
         /// <summary>
+        /// Gets and sets the size of the drink
+        /// </summary>
+        public Size Size { get; set; }
+
+        /// <summary>
         /// gets the price of the drink
         /// </summary>
         public abstract double Price { get; }
