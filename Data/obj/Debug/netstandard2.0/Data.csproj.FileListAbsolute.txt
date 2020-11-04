@@ -2,6 +2,7 @@ C:\Users\meyer\CIS400\bleakwind-buffet\Data\bin\Debug\netstandard2.0\Data.deps.j
 C:\Users\meyer\CIS400\bleakwind-buffet\Data\bin\Debug\netstandard2.0\Data.dll
 C:\Users\meyer\CIS400\bleakwind-buffet\Data\bin\Debug\netstandard2.0\Data.pdb
 C:\Users\meyer\CIS400\bleakwind-buffet\Data\bin\Debug\netstandard2.0\RoundRegister.dll
+C:\Users\meyer\CIS400\bleakwind-buffet\Data\obj\Debug\netstandard2.0\Data.csprojAssemblyReference.cache
 C:\Users\meyer\CIS400\bleakwind-buffet\Data\obj\Debug\netstandard2.0\Data.AssemblyInfoInputs.cache
 C:\Users\meyer\CIS400\bleakwind-buffet\Data\obj\Debug\netstandard2.0\Data.AssemblyInfo.cs
 C:\Users\meyer\CIS400\bleakwind-buffet\Data\obj\Debug\netstandard2.0\Data.csproj.CoreCompileInputs.cache
