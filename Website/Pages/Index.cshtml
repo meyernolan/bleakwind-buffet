@@ -57,18 +57,18 @@
 
     </div>
 
-
-
-
-    <div id="results">
-        <h2 class="menu-item">Entrees</h2>
+    <div id="results" class="flex-columns">
         <div>
+            <h2 class="menu-item">Entrees</h2>
             @foreach (BleakwindBuffet.Data.IOrderItem item in Model.Items)
             {
                 if (item is BleakwindBuffet.Data.Entrees.Entree entree)
                 {
                     <div class="entree-name">
                         @entree.Name
+                    </div>
+                    <div>
+                        @entree.Description
                     </div>
                     <div>
                         Calories: @entree.Calories
@@ -80,15 +80,17 @@
             }
         </div>
 
-        <h2 class="menu-item">Sides</h2>
         <div>
-
+            <h2 class="menu-item">Sides</h2>
             @foreach (BleakwindBuffet.Data.IOrderItem item in Model.Items)
             {
                 @if (item is BleakwindBuffet.Data.Sides.Side side)
                 {
                     <div class="side-name">
                         @side.Name
+                    </div>
+                    <div>
+                        @side.Description
                     </div>
                     <div>
                         Calories: @side.Calories
@@ -100,14 +102,17 @@
             }
         </div>
 
-        <h2 class="menu-item">Drinks</h2>
         <div>
+            <h2 class="menu-item">Drinks</h2>
             @foreach (BleakwindBuffet.Data.IOrderItem item in Model.Items)
             {
                 @if (item is BleakwindBuffet.Data.Drinks.Drink drink)
                 {
                     <div class="drink-name">
                         @drink.Name
+                    </div>
+                    <div>
+                        @drink.Description
                     </div>
                     <div>
                         Calories: @drink.Calories
@@ -118,19 +123,21 @@
                 }
             }
         </div>
-
-        <h2 class="menu-item">Combo</h2>
-        <div>Any Entree, Side, and Drink can be combined to create a combo at a discount of $1!</div>
-
-        <h2 class="menu-item">Soda Flavors</h2>
         <div>
+            <h2 class="menu-item">Combo</h2>
+            <div>Any Entree, Side, and Drink can be combined to create a combo at a discount of $1!</div>
+        </div>
+
+        <div id>
+            <h2 class="menu-item">Soda Flavors</h2>
             @foreach (BleakwindBuffet.Data.Enums.SodaFlavor flavor in
-         (BleakwindBuffet.Data.Enums.SodaFlavor[])Enum.GetValues(typeof(BleakwindBuffet.Data.Enums.SodaFlavor)))
+       (BleakwindBuffet.Data.Enums.SodaFlavor[])Enum.GetValues(typeof(BleakwindBuffet.Data.Enums.SodaFlavor)))
             {
                 <div class="soda-flavor">@flavor.ToString()</div>
             }
         </div>
     </div>
+    <div class="clearfix"></div>
 </form>
 
 

@@ -180,5 +180,10 @@ namespace BleakwindBuffet.Data
                 return instructions;
             }
         }
+
+        /// <summary>
+        /// Returns the description of the Combo
+        /// </summary>
+        public string Description { get => ""; }
     }
 }

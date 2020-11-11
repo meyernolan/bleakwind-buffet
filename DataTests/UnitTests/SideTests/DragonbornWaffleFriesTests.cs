@@ -136,5 +136,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             var dwf = new DragonbornWaffleFries();
             Assert.IsAssignableFrom<INotifyPropertyChanged>(dwf);
         }
+
+        [Fact]
+        public void DescriptionShouldReturnADescriptionOfItem()
+        {
+            DragonbornWaffleFries item = new DragonbornWaffleFries();
+            Assert.Equal("Crispy fried potato waffle fries.", item.Description);
+        }
     }
 }

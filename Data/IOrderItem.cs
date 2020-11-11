@@ -34,5 +34,10 @@ namespace BleakwindBuffet.Data
         /// Returns the name of the IOrderItem
         /// </summary>
         string Name { get; }
+
+        /// <summary>
+        /// Returns the description of the IOrderItem
+        /// </summary>
+        string Description { get; }
     }
 }

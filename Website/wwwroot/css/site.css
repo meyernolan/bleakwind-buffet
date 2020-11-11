@@ -117,3 +117,25 @@ form#menu-database {
 	margin-bottom: 0.3rem;
 }
 
+.flex-columns > div {
+    float: left;
+    width: 33%;
+}
+
+@media (max-width: 490px) {
+    .flex-columns > div {
+        float: none;
+        width: 100%;
+    }
+}
+
+.flex-columns {
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 490px) {
+    .flex-columns {
+        flex-direction: column;
+    }
+}

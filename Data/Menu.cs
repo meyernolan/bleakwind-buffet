@@ -116,7 +116,7 @@ namespace BleakwindBuffet.Data
 
             foreach (IOrderItem item in FullMenu())
             {
-                if (item.Name != null && item.Name.Contains(str))
+                if ((item.Name != null && item.Name.ToLower().Contains(str.ToLower())) || item.Description.ToLower().Contains(str.ToLower()))
                 {
                     results.Add(item);
                 }

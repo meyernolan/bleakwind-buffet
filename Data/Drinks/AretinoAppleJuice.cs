@@ -108,5 +108,11 @@ namespace BleakwindBuffet.Data.Drinks
             return sb.ToString();
         }
 
+
+        /// <summary>
+        /// returns the description of the Item.
+        /// </summary>
+        public override string Description { get => "Fresh squeezed apple juice."; }
+
     }
 }

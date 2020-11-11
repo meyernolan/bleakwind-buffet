@@ -140,5 +140,14 @@ namespace BleakwindBuffet.DataTests.UnitTests
             }
         }
 
+        [Fact]
+        public void DescriptionShouldReturnADescriptionOfItem()
+        {
+            BriarheartBurger bb = new BriarheartBurger();
+            CandlehearthCoffee cc = new CandlehearthCoffee();
+            FriedMiraak fm = new FriedMiraak();
+            Combo order = new Combo(bb, fm, cc);
+            Assert.Equal("", order.Description);
+        }
     }
 }

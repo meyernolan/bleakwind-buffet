@@ -54,5 +54,10 @@ namespace BleakwindBuffet.Data.Drinks
         {
             get => this.ToString();
         }
+
+        /// <summary>
+        /// Returns the description of the Drink
+        /// </summary>
+        public abstract string Description { get; }
     }
 }

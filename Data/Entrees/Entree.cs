@@ -47,5 +47,10 @@ namespace BleakwindBuffet.Data.Entrees
         {
             get => this.ToString();
         }
+
+        /// <summary>
+        /// Returns the description of the Entree
+        /// </summary>
+        public abstract string Description { get; }
     }
 }
